@@ -1,48 +1,87 @@
-# Copyright (C) 2022 Algoritmika Ltd
-# This file is distributed under the same license as the Products per Page for WooCommerce plugin.
-msgid ""
-msgstr ""
-"Project-Id-Version: Products per Page for WooCommerce 2.0.2-dev\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/products-per-page-for-woocommerce\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-02-08T14:39:34+01:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.4.0\n"
-"X-Domain: products-per-page-for-woocommerce\n"
-
-#. Plugin Name of the plugin
-msgid "Products per Page for WooCommerce"
-msgstr ""
-
-#. Plugin URI of the plugin
-msgid "https://wpfactory.com/item/products-per-page-woocommerce/"
-msgstr ""
-
-#. Description of the plugin
-msgid "Products per page selector for WooCommerce."
-msgstr ""
-
-#. Author of the plugin
-msgid "Algoritmika Ltd"
-msgstr ""
-
-#. Author URI of the plugin
-msgid "https://algoritmika.com"
-msgstr ""
-
 #: includes/class-alg-wc-products-per-page-core.php:129
 #: includes/class-alg-wc-products-per-page-core.php:343
 #: includes/class-alg-wc-products-per-page-core.php:387
+#: includes/pro/class-alg-wc-products-per-page-widget.php:71
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:143
-msgid "Products <strong>%from% - %to%</strong> from <strong>%total%</strong>. Products on page %dropdown%"
+msgid ""
+"Products <strong>%from% - %to%</strong> from <strong>%total%</strong>. "
+"Products on page %dropdown%"
+msgstr ""
+
+#: includes/class-alg-wc-products-per-page.php:128
+msgid "Settings"
 msgstr ""
 
 #: includes/class-alg-wc-products-per-page.php:131
 msgid "Go Pro"
+msgstr ""
+
+#: includes/pro/class-alg-wc-products-per-page-widget.php:26
+msgid "Products per page selector."
+msgstr ""
+
+#: includes/pro/class-alg-wc-products-per-page-widget.php:28
+#: includes/settings/class-alg-wc-products-per-page-settings-general.php:67
+#: includes/settings/class-alg-wc-products-per-page-settings-general.php:120
+#: includes/settings/class-alg-wc-settings-products-per-page.php:25
+msgid "Products per Page"
+msgstr ""
+
+#: includes/pro/class-alg-wc-products-per-page-widget.php:64
+#: includes/settings/class-alg-wc-products-per-page-settings-general.php:200
+msgid "Title"
+msgstr ""
+
+#: includes/pro/class-alg-wc-products-per-page-widget.php:68
+#: includes/settings/class-alg-wc-products-per-page-settings-general.php:139
+msgid "Template"
+msgstr ""
+
+#: includes/pro/class-alg-wc-products-per-page-widget.php:69
+#: includes/settings/class-alg-wc-products-per-page-settings-general.php:140
+#, php-format
+msgid "Available placeholders: %s."
+msgstr ""
+
+#: includes/pro/class-alg-wc-products-per-page-widget.php:75
+#: includes/settings/class-alg-wc-products-per-page-settings-general.php:148
+msgid "Selector class"
+msgstr ""
+
+#: includes/pro/class-alg-wc-products-per-page-widget.php:76
+#: includes/pro/class-alg-wc-products-per-page-widget.php:83
+#: includes/settings/class-alg-wc-products-per-page-settings-general.php:149
+#: includes/settings/class-alg-wc-products-per-page-settings-general.php:158
+#, php-format
+msgid ""
+"In case of %s it is applied to each %s tag. In case of %s it is applied to "
+"the %s tag."
+msgstr ""
+
+#: includes/pro/class-alg-wc-products-per-page-widget.php:82
+#: includes/settings/class-alg-wc-products-per-page-settings-general.php:157
+msgid "Selector style"
+msgstr ""
+
+#: includes/pro/class-alg-wc-products-per-page-widget.php:89
+#: includes/settings/class-alg-wc-products-per-page-settings-general.php:166
+msgid "Before HTML"
+msgstr ""
+
+#: includes/pro/class-alg-wc-products-per-page-widget.php:94
+#: includes/settings/class-alg-wc-products-per-page-settings-general.php:173
+msgid "After HTML"
+msgstr ""
+
+#: includes/pro/class-alg-wc-products-per-page-widget.php:99
+#: includes/settings/class-alg-wc-products-per-page-settings-general.php:180
+msgid "Radio glue"
+msgstr ""
+
+#: includes/pro/class-alg-wc-products-per-page-widget.php:100
+#: includes/settings/class-alg-wc-products-per-page-settings-general.php:181
+#, php-format
+msgid "This is used for the %s placeholder - to \"glue\" the radio buttons."
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:25
@@ -58,6 +97,7 @@ msgid "Form method"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:48
+#, php-format
 msgid "%s method will append %s parameter to the URL, e.g.: %s"
 msgstr ""
 
@@ -66,102 +106,116 @@ msgid "Apply in WooCommerce shortcodes"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:61
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:105
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:122
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:109
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:126
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:118
 msgid "Enable"
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:67
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:62
+#, php-format
+msgid "Apply selector in WooCommerce %s shortcode."
+msgstr ""
+
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:69
 msgid "Scopes"
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:68
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:70
 msgid "Require"
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:74
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:92
-msgid "Product category"
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:75
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:93
-msgid "Product tag"
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:76
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:94
-msgid "Product taxonomy"
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:71
+msgid "Apply selector on selected pages only. Ignored if empty."
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:77
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:95
-msgid "Shop"
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:96
+msgid "Product category"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:78
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:96
-msgid "Archive"
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:97
+msgid "Product tag"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:79
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:97
-msgid "Home"
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:98
+msgid "Product taxonomy"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:80
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:98
-msgid "Front page"
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:99
+msgid "Shop"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:81
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:99
-msgid "Single"
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:100
+msgid "Archive"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:82
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:100
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:101
+msgid "Home"
+msgstr ""
+
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:83
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:102
+msgid "Front page"
+msgstr ""
+
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:84
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:103
+msgid "Single"
+msgstr ""
+
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:85
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:104
 msgid "Singular"
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:86
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:89
 msgid "Exclude"
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:104
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:90
+msgid "Do not apply selector on selected pages."
+msgstr ""
+
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:108
 msgid "Save in cookie"
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:106
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:110
+#, php-format
 msgid "%s cookie is used to save user's \"products per page\" selection."
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:113
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:117
 msgid "Cookie expiration time"
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:114
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:118
 msgid "In seconds."
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:121
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:125
 msgid "Save in session"
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:123
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:127
 msgid "Store selected \"products per page\" value in user session."
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:130
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:134
 msgid "Force session start"
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:131
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:135
 msgid "Force session start for the non-logged users."
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:138
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:142
 msgid "Custom CSS"
 msgstr ""
 
@@ -201,12 +255,6 @@ msgstr ""
 msgid "Products per Page Options"
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-general.php:67
-#: includes/settings/class-alg-wc-products-per-page-settings-general.php:120
-#: includes/settings/class-alg-wc-settings-products-per-page.php:25
-msgid "Products per Page"
-msgstr ""
-
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:68
 msgid "Enable plugin"
 msgstr ""
@@ -220,6 +268,7 @@ msgid "Position(s)"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:95
+#, php-format
 msgid "Position priority: %s"
 msgstr ""
 
@@ -240,7 +289,10 @@ msgid "One per line."
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:109
-msgid "If you want to set the priority for the action, use vertical bar symbol, e.g.: %s"
+#, php-format
+msgid ""
+"If you want to set the priority for the action, use vertical bar symbol, e."
+"g.: %s"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:117
@@ -248,6 +300,7 @@ msgid "Widget"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:119
+#, php-format
 msgid "Will add \"%s\" widget to %s."
 msgstr ""
 
@@ -259,43 +312,6 @@ msgstr ""
 msgid "Template Options"
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-general.php:139
-msgid "Template"
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-general.php:140
-msgid "Available placeholders: %s."
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-general.php:148
-msgid "Selector class"
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-general.php:149
-#: includes/settings/class-alg-wc-products-per-page-settings-general.php:158
-msgid "In case of %s it is applied to each %s tag. In case of %s it is applied to the %s tag."
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-general.php:157
-msgid "Selector style"
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-general.php:166
-msgid "Before HTML"
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-general.php:173
-msgid "After HTML"
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-general.php:180
-msgid "Radio glue"
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-general.php:181
-msgid "This is used for the %s placeholder - to \"glue\" the radio buttons."
-msgstr ""
-
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:193
 msgid "Select Options"
 msgstr ""
@@ -305,11 +321,8 @@ msgid "Select options"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:199
+#, php-format
 msgid "Enter one option per line in %s format. Use %s for \"all products\"."
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-general.php:200
-msgid "Title"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:200

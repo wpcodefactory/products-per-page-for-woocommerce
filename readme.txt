@@ -3,7 +3,7 @@ Contributors: wpcodefactory, algoritmika, anbinder
 Tags: woocommerce, products per page, woo commerce
 Requires at least: 4.4
 Tested up to: 5.9
-Stable tag: 2.0.1
+Stable tag: 2.1.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -43,14 +43,14 @@ Products per page selector for WooCommerce.
 
 == Screenshots ==
 
-1. Products per Page for WooCommerce - Frontend
+1. Products per Page for WooCommerce - Frontend example
 
 == Changelog ==
 
-= 2.0.2 - 08/02/2022 =
-* Dev - Add github deploy script.
+= 2.1.0 - 08/02/2022 =
 * Dev - Advanced - "Scopes" options added.
-* Dev - Advanced - "Apply in WooCommerce shortcodes" option added.
+* Dev - Advanced - "Apply in WooCommerce shortcodes" option added (defaults to `yes`).
+* Dev - GitHub deploy script added.
 * Tested up to: 5.9.
 * WC tested up to: 6.1.
 

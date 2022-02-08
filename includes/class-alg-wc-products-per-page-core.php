@@ -2,13 +2,13 @@
 /**
  * Products per Page for WooCommerce - Core Class
  *
- * @version 2.0.2
+ * @version 2.1.0
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'Alg_WC_Products_Per_Page_Core' ) ) :
 
@@ -17,7 +17,7 @@ class Alg_WC_Products_Per_Page_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 2.0.2
+	 * @version 2.1.0
 	 * @since   1.0.0
 	 *
 	 * @todo    [later] (dev) remove `get_option( 'alg_products_per_page_position_priority', 40 )`
@@ -426,8 +426,8 @@ class Alg_WC_Products_Per_Page_Core {
 	/**
 	 * check_scope.
 	 *
-	 * @version 2.0.2
-	 * @since   2.0.2
+	 * @version 2.1.0
+	 * @since   2.1.0
 	 */
 	function check_scope() {
 		$scopes = get_option( 'alg_wc_products_per_page_scopes', array() );
@@ -446,7 +446,7 @@ class Alg_WC_Products_Per_Page_Core {
 	/**
 	 * set_products_per_page.
 	 *
-	 * @version 2.0.2
+	 * @version 2.1.0
 	 * @since   1.0.0
 	 */
 	function set_products_per_page( $products_per_page ) {
@@ -456,7 +456,7 @@ class Alg_WC_Products_Per_Page_Core {
 	/**
 	 * set_products_per_page_query_arg.
 	 *
-	 * @version 2.0.2
+	 * @version 2.1.0
 	 * @since   1.6.0
 	 */
 	function set_products_per_page_query_arg( $query_args ) {

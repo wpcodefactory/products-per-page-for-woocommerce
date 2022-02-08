@@ -2,13 +2,13 @@
 /**
  * Products per Page for WooCommerce - Advanced Section Settings
  *
- * @version 2.0.2
+ * @version 2.1.0
  * @since   2.0.0
  *
  * @author  Algoritmika Ltd.
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'Alg_WC_Products_Per_Page_Settings_Advanced' ) ) :
 
@@ -29,11 +29,11 @@ class Alg_WC_Products_Per_Page_Settings_Advanced extends Alg_WC_Products_Per_Pag
 	/**
 	 * get_settings.
 	 *
-	 * @version 2.0.2
+	 * @version 2.1.0
 	 * @since   2.0.0
 	 *
-	 * @todo    [now] (desc) `alg_wc_products_per_page_scopes`
-	 * @todo    [now] (desc) `alg_wc_products_per_page_wc_shortcode`
+	 * @todo    [later] (desc) `alg_wc_products_per_page_scopes`: better desc?
+	 * @todo    [later] (desc) `alg_wc_products_per_page_wc_shortcode`: better desc?
 	 * @todo    [maybe] (desc) `alg_wc_products_per_page_form_method`: better desc, e.g. "Useful if user wants to bookmark the result"?
 	 */
 	function get_settings() {
@@ -59,6 +59,8 @@ class Alg_WC_Products_Per_Page_Settings_Advanced extends Alg_WC_Products_Per_Pag
 			array(
 				'title'    => __( 'Apply in WooCommerce shortcodes', 'products-per-page-for-woocommerce' ),
 				'desc'     => __( 'Enable', 'products-per-page-for-woocommerce' ),
+				'desc_tip' => sprintf( __( 'Apply selector in WooCommerce %s shortcode.', 'products-per-page-for-woocommerce' ),
+					'<code>[products]</code>' ),
 				'id'       => 'alg_wc_products_per_page_wc_shortcode',
 				'default'  => 'yes',
 				'type'     => 'checkbox',
@@ -66,6 +68,7 @@ class Alg_WC_Products_Per_Page_Settings_Advanced extends Alg_WC_Products_Per_Pag
 			array(
 				'title'    => __( 'Scopes', 'products-per-page-for-woocommerce' ),
 				'desc'     => __( 'Require', 'products-per-page-for-woocommerce' ),
+				'desc_tip' => __( 'Apply selector on selected pages only. Ignored if empty.', 'products-per-page-for-woocommerce' ),
 				'id'       => 'alg_wc_products_per_page_scopes[require]',
 				'default'  => array(),
 				'type'     => 'multiselect',
@@ -84,6 +87,7 @@ class Alg_WC_Products_Per_Page_Settings_Advanced extends Alg_WC_Products_Per_Pag
 			),
 			array(
 				'desc'     => __( 'Exclude', 'products-per-page-for-woocommerce' ),
+				'desc_tip' => __( 'Do not apply selector on selected pages.', 'products-per-page-for-woocommerce' ),
 				'id'       => 'alg_wc_products_per_page_scopes[exclude]',
 				'default'  => array(),
 				'type'     => 'multiselect',
