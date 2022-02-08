@@ -47,7 +47,8 @@ Products per page selector for WooCommerce.
 
 == Changelog ==
 
-= 2.0.2 - 04/02/2022 =
+= 2.0.2 - 08/02/2022 =
+* Dev - Add github deploy script.
 * Dev - Advanced - "Scopes" options added.
 * Dev - Advanced - "Apply in WooCommerce shortcodes" option added.
 * Tested up to: 5.9.
