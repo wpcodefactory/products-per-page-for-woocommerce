@@ -1,6 +1,6 @@
-#: includes/class-alg-wc-products-per-page-core.php:129
-#: includes/class-alg-wc-products-per-page-core.php:343
-#: includes/class-alg-wc-products-per-page-core.php:387
+#: includes/class-alg-wc-products-per-page-core.php:130
+#: includes/class-alg-wc-products-per-page-core.php:344
+#: includes/class-alg-wc-products-per-page-core.php:388
 #: includes/pro/class-alg-wc-products-per-page-widget.php:71
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:143
 msgid ""

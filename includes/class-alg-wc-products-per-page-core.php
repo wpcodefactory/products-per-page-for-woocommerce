@@ -2,7 +2,7 @@
 /**
  * Products per Page for WooCommerce - Core Class
  *
- * @version 2.1.0
+ * @version 2.1.1
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -86,7 +86,7 @@ class Alg_WC_Products_Per_Page_Core {
 	/**
 	 * replace_pagination_template.
 	 *
-	 * @version 2.0.0
+	 * @version 2.1.1
 	 * @since   2.0.0
 	 *
 	 * @todo    [next] (feature) `loop/result-count.php`
@@ -94,7 +94,8 @@ class Alg_WC_Products_Per_Page_Core {
 	 * @todo    [maybe] (dev) check "Product Filters for WooCommerce" plugin filters (i.e. instead of overriding the pagination template)?
 	 */
 	function replace_pagination_template( $located, $template_name ) {
-		return ( 'loop/pagination.php' === $template_name ? alg_wc_products_per_page()->plugin_path() . '/includes/templates/loop/pagination.php' : $located );
+		return ( 'loop/pagination.php' === $template_name && apply_filters( 'alg_wc_products_per_page_replace_pagination_template', true ) ?
+			alg_wc_products_per_page()->plugin_path() . '/includes/templates/loop/pagination.php' : $located );
 	}
 
 	/**
