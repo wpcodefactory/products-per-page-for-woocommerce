@@ -1,5 +1,5 @@
 === Products per Page for WooCommerce ===
-Contributors: wpcodefactory, algoritmika, anbinder, omardabbas, kousikmukherjeeli
+Contributors: wpcodefactory, algoritmika, anbinder, omardabbas, kousikmukherjeeli 
 Tags: woocommerce, products per page, woo commerce
 Requires at least: 4.4
 Tested up to: 6.2
