@@ -1,6 +1,6 @@
-#: includes/class-alg-wc-products-per-page-core.php:130
-#: includes/class-alg-wc-products-per-page-core.php:344
-#: includes/class-alg-wc-products-per-page-core.php:388
+#: includes/class-alg-wc-products-per-page-core.php:146
+#: includes/class-alg-wc-products-per-page-core.php:360
+#: includes/class-alg-wc-products-per-page-core.php:404
 #: includes/pro/class-alg-wc-products-per-page-widget.php:71
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:143
 msgid ""
@@ -8,11 +8,11 @@ msgid ""
 "Products on page %dropdown%"
 msgstr ""
 
-#: includes/class-alg-wc-products-per-page.php:128
+#: includes/class-alg-wc-products-per-page.php:158
 msgid "Settings"
 msgstr ""
 
-#: includes/class-alg-wc-products-per-page.php:131
+#: includes/class-alg-wc-products-per-page.php:161
 msgid "Go Pro"
 msgstr ""
 

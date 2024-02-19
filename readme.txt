@@ -1,9 +1,9 @@
 === Products per Page for WooCommerce ===
-Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmukherjeeli
+Contributors: wpcodefactory, algoritmika, anbinder, karzin, omardabbas, kousikmukherjeeli
 Tags: woocommerce, products per page, woo commerce
 Requires at least: 4.4
-Tested up to: 6.3
-Stable tag: 2.1.4
+Tested up to: 6.4
+Stable tag: 2.2.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -16,7 +16,7 @@ Products per page selector for WooCommerce.
 ### &#9989; Main Features ###
 
 * Multiple and customizable **frontend positions** (before products, after products, custom positions, etc.).
-* Display selector anywhere on your site with `[alg_wc_products_per_page]` **shortcode**. For example, this is especially useful when using **visual builders**, like e.g. Elementor.
+* Display selector anywhere on your site with the `[alg_wc_products_per_page]` **shortcode**. This is especially useful when using **visual builders**, e.g., Elementor.
 * **Template options**: template, selector class and style, before and after HTML.
 * Output selector as a **dropdown box** or as **radio buttons**.
 * Option to enable/disable **cookie**.
@@ -30,10 +30,14 @@ Products per page selector for WooCommerce.
 * Customizable **select options**.
 * "Products per Page" **widget**.
 
-= Feedback =
+### &#128472; Feedback ###
 
 * We are open to your suggestions and feedback. Thank you for using or trying out one of our plugins!
 * [Visit plugin site](https://wpfactory.com/item/products-per-page-woocommerce/).
+
+### &#8505; More ###
+
+* The plugin is **"High-Performance Order Storage (HPOS)"** compatible.
 
 == Installation ==
 
@@ -47,13 +51,19 @@ Products per page selector for WooCommerce.
 
 == Changelog ==
 
+= 2.2.0 - 19/02/2024 =
+* Dev - PHP 8.2 compatibility - "Creation of dynamic property is deprecated" notice fixed.
+* Dev – "High-Performance Order Storage (HPOS)" compatibility.
+* WC tested up to: 8.6.
+* Tested up to: 6.4.
+
 = 2.1.4 - 03/10/2023 =
-* Update plugin author.
+* Plugin author updated.
 
 = 2.1.3 - 26/09/2023 =
 * WC tested up to: 8.1.
 * Tested up to: 6.3.
-* Update plugin icon, banner.
+* Plugin icon, banner updated.
 
 = 2.1.2 - 18/06/2023 =
 * WC tested up to: 7.8.
@@ -81,7 +91,7 @@ Products per page selector for WooCommerce.
 * Dev - Position Options - "Before pagination" and "After pagination" positions added (compatible with the "Product Filters for WooCommerce" plugin (https://woocommerce.com/products/product-filters/)).
 * Dev - Advanced Options - "Custom CSS" option added.
 * Dev - Advanced Options - Form method - GET - Passing all URL params via hidden fields now.
-* Dev - Advanced Options - "Save in session" options added (defaults to `yes`). I.e. storing selected "products per page" value in session as well now.
+* Dev - Advanced Options - "Save in session" options added (defaults to `yes`). I.e., storing selected "products per page" value in session as well now.
 * Dev - WooCommerce `[products]` shortcode compatibility added.
 * Dev - Cookie is (maybe) set on the `init` action now.
 * Dev - Not escaping the current URL in "products per page" form now.
@@ -122,7 +132,7 @@ Products per page selector for WooCommerce.
 * WC tested up to: 4.8.
 
 = 1.3.1 - 13/10/2020 =
-* Fix - Checking if any products will be displayed before outputting the "products per page" form (e.g. fixes the issue when only subcategories are displayed).
+* Fix - Checking if any products will be displayed before outputting the "products per page" form (e.g., fixes the issue when only subcategories are displayed).
 * Tested up to: 5.5.
 * WC tested up to: 4.5.
 

@@ -50,8 +50,8 @@ class Alg_WC_Products_Per_Page_Settings_General extends Alg_WC_Products_Per_Page
 	 * @version 2.0.0
 	 * @since   1.0.0
 	 *
-	 * @todo    [next] (desc) split this into separate sections, e.g. "General", "Template", etc.?
-	 * @todo    [next] (desc) Position priority: list "known priorities"?
+	 * @todo    (desc) split this into separate sections, e.g., "General", "Template", etc.?
+	 * @todo    (desc) Position priority: list "known priorities"?
 	 */
 	function get_settings() {
 

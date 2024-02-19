@@ -2,7 +2,7 @@
 /**
  * Products per Page for WooCommerce - Main Class
  *
- * @version 1.6.0
+ * @version 2.2.0
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -21,6 +21,14 @@ final class Alg_WC_Products_Per_Page {
 	 * @since 1.0.0
 	 */
 	public $version = ALG_WC_PRODUCTS_PER_PAGE_VERSION;
+
+	/**
+	 * core.
+	 *
+	 * @version 2.2.0
+	 * @since   2.2.0
+	 */
+	public $core;
 
 	/**
 	 * @var   Alg_WC_Products_Per_Page The single instance of the class
@@ -49,7 +57,7 @@ final class Alg_WC_Products_Per_Page {
 	/**
 	 * Alg_WC_Products_Per_Page Constructor.
 	 *
-	 * @version 1.6.0
+	 * @version 2.2.0
 	 * @since   1.0.0
 	 */
 	function __construct() {
@@ -61,6 +69,9 @@ final class Alg_WC_Products_Per_Page {
 
 		// Set up localisation
 		add_action( 'init', array( $this, 'localize' ) );
+
+		// Declare compatibility with custom order tables for WooCommerce
+		add_action( 'before_woocommerce_init', array( $this, 'wc_declare_compatibility' ) );
 
 		// Pro
 		if ( 'products-per-page-for-woocommerce-pro.php' === basename( ALG_WC_PRODUCTS_PER_PAGE_FILE ) ) {
@@ -85,6 +96,25 @@ final class Alg_WC_Products_Per_Page {
 	 */
 	function localize() {
 		load_plugin_textdomain( 'products-per-page-for-woocommerce', false, dirname( plugin_basename( ALG_WC_PRODUCTS_PER_PAGE_FILE ) ) . '/langs/' );
+	}
+
+	/**
+	 * wc_declare_compatibility.
+	 *
+	 * @version 2.2.0
+	 * @since   2.2.0
+	 *
+	 * @see     https://github.com/woocommerce/woocommerce/wiki/High-Performance-Order-Storage-Upgrade-Recipe-Book#declaring-extension-incompatibility
+	 */
+	function wc_declare_compatibility() {
+		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+			$files = ( defined( 'ALG_WC_PRODUCTS_PER_PAGE_FILE_FREE' ) ?
+				array( ALG_WC_PRODUCTS_PER_PAGE_FILE, ALG_WC_PRODUCTS_PER_PAGE_FILE_FREE ) :
+				array( ALG_WC_PRODUCTS_PER_PAGE_FILE ) );
+			foreach ( $files as $file ) {
+				\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', $file, true );
+			}
+		}
 	}
 
 	/**

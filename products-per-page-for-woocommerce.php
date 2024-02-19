@@ -3,12 +3,12 @@
 Plugin Name: Products per Page for WooCommerce
 Plugin URI: https://wpfactory.com/item/products-per-page-woocommerce/
 Description: Products per page selector for WooCommerce.
-Version: 2.1.4
+Version: 2.2.0
 Author: WPFactory
-Author URI: http://www.WPFactory.com
+Author URI: https://wpfactory.com
 Text Domain: products-per-page-for-woocommerce
 Domain Path: /langs
-WC tested up to: 8.1
+WC tested up to: 8.6
 */
 
 defined( 'ABSPATH' ) || exit;
@@ -17,7 +17,7 @@ if ( 'products-per-page-for-woocommerce.php' === basename( __FILE__ ) ) {
 	/**
 	 * Check if Pro plugin version is activated.
 	 *
-	 * @version 1.6.0
+	 * @version 2.2.0
 	 * @since   1.6.0
 	 */
 	$plugin = 'products-per-page-for-woocommerce-pro/products-per-page-for-woocommerce-pro.php';
@@ -25,11 +25,12 @@ if ( 'products-per-page-for-woocommerce.php' === basename( __FILE__ ) ) {
 		in_array( $plugin, (array) get_option( 'active_plugins', array() ), true ) ||
 		( is_multisite() && array_key_exists( $plugin, (array) get_site_option( 'active_sitewide_plugins', array() ) ) )
 	) {
+		defined( 'ALG_WC_PRODUCTS_PER_PAGE_FILE_FREE' ) || define( 'ALG_WC_PRODUCTS_PER_PAGE_FILE_FREE', __FILE__ );
 		return;
 	}
 }
 
-defined( 'ALG_WC_PRODUCTS_PER_PAGE_VERSION' ) || define( 'ALG_WC_PRODUCTS_PER_PAGE_VERSION', '2.1.4' );
+defined( 'ALG_WC_PRODUCTS_PER_PAGE_VERSION' ) || define( 'ALG_WC_PRODUCTS_PER_PAGE_VERSION', '2.2.0' );
 
 defined( 'ALG_WC_PRODUCTS_PER_PAGE_FILE' ) || define( 'ALG_WC_PRODUCTS_PER_PAGE_FILE', __FILE__ );
 

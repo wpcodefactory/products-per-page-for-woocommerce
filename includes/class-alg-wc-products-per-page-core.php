@@ -2,7 +2,7 @@
 /**
  * Products per Page for WooCommerce - Core Class
  *
- * @version 2.1.1
+ * @version 2.2.0
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -15,14 +15,30 @@ if ( ! class_exists( 'Alg_WC_Products_Per_Page_Core' ) ) :
 class Alg_WC_Products_Per_Page_Core {
 
 	/**
+	 * id_counter.
+	 *
+	 * @version 2.2.0
+	 * @since   2.2.0
+	 */
+	public $id_counter;
+
+	/**
+	 * shortcode_loop_props.
+	 *
+	 * @version 2.2.0
+	 * @since   2.2.0
+	 */
+	public $shortcode_loop_props;
+
+	/**
 	 * Constructor.
 	 *
 	 * @version 2.1.0
 	 * @since   1.0.0
 	 *
-	 * @todo    [later] (dev) remove `get_option( 'alg_products_per_page_position_priority', 40 )`
-	 * @todo    [maybe] (feature) option to redirect to last page num (i.e. instead of `get_pagenum_link()`)?
-	 * @todo    [maybe] (dev) use `shortcode_atts_products` instead of `woocommerce_shortcode_products_query`?
+	 * @todo    (dev) remove `get_option( 'alg_products_per_page_position_priority', 40 )`
+	 * @todo    (feature) option to redirect to last page num (i.e., instead of `get_pagenum_link()`)?
+	 * @todo    (dev) use `shortcode_atts_products` instead of `woocommerce_shortcode_products_query`?
 	 */
 	function __construct() {
 		if ( 'yes' === get_option( 'alg_wc_products_per_page_enabled', 'yes' ) ) {
@@ -89,9 +105,9 @@ class Alg_WC_Products_Per_Page_Core {
 	 * @version 2.1.1
 	 * @since   2.0.0
 	 *
-	 * @todo    [next] (feature) `loop/result-count.php`
-	 * @todo    [next] (feature) `loop/orderby.php`
-	 * @todo    [maybe] (dev) check "Product Filters for WooCommerce" plugin filters (i.e. instead of overriding the pagination template)?
+	 * @todo    (feature) `loop/result-count.php`
+	 * @todo    (feature) `loop/orderby.php`
+	 * @todo    (dev) check "Product Filters for WooCommerce" plugin filters (i.e., instead of overriding the pagination template)?
 	 */
 	function replace_pagination_template( $located, $template_name ) {
 		return ( 'loop/pagination.php' === $template_name && apply_filters( 'alg_wc_products_per_page_replace_pagination_template', true ) ?
@@ -123,7 +139,7 @@ class Alg_WC_Products_Per_Page_Core {
 	 * @version 2.0.0
 	 * @since   1.5.0
 	 *
-	 * @todo    [maybe] (feature) add `select_options` and `form_method` atts?
+	 * @todo    (feature) add `select_options` and `form_method` atts?
 	 */
 	function form_shortcode( $atts, $content = '' ) {
 		$default_atts = array(
@@ -167,7 +183,7 @@ class Alg_WC_Products_Per_Page_Core {
 	 * @version 2.0.0
 	 * @since   2.0.0
 	 *
-	 * @todo    [next] (dev) do we really need this?
+	 * @todo    (dev) do we really need this?
 	 */
 	function save_wc_shortcode_results( $results ) {
 		$this->shortcode_loop_props['post_count']   = ( ! empty( $results->ids ) && is_array( $results->ids ) ? count( $results->ids ) : 0 );
@@ -182,7 +198,7 @@ class Alg_WC_Products_Per_Page_Core {
 	 * @version 2.0.0
 	 * @since   2.0.0
 	 *
-	 * @todo    [next] (dev) do we really need this so complex? maybe `wc_get_loop_prop()` would be good enough?
+	 * @todo    (dev) do we really need this so complex? maybe `wc_get_loop_prop()` would be good enough?
 	 */
 	function get_loop_prop( $prop, $args = array() ) {
 		global $wp_query;
@@ -258,7 +274,7 @@ class Alg_WC_Products_Per_Page_Core {
 	 * @version 2.0.0
 	 * @since   2.0.0
 	 *
-	 * @todo    [next] (feature) `$args['radio_template']` (defaults to `%input%%label%`)
+	 * @todo    (feature) `$args['radio_template']` (defaults to `%input%%label%`)
 	 */
 	function get_radio( $per_page, $args ) {
 		$fields    = array();
@@ -305,7 +321,7 @@ class Alg_WC_Products_Per_Page_Core {
 	 * @version 2.0.0
 	 * @since   2.0.0
 	 *
-	 * @todo    [next] (dev) pass all `$_POST` params?
+	 * @todo    (dev) pass all `$_POST` params?
 	 */
 	function get_hidden_fields( $form_method ) {
 		$fields = '';
@@ -325,18 +341,18 @@ class Alg_WC_Products_Per_Page_Core {
 	 * @version 2.0.0
 	 * @since   1.5.0
 	 *
-	 * @todo    [next] (feature) separate templates for "Showing the single result" and "Showing all %d results" (see `woocommerce/.../result-count.php`)
-	 * @todo    [next] (feature) `select2`
-	 * @todo    [next] (feature) customizable HTML `name` attribute, and maybe change the default value from `alg_wc_products_per_page` to `alg_wc_ppp`, or `products_per_page`, or `ppp`
-	 * @todo    [next] (feature) customizable HTML `id` attribute
-	 * @todo    [next] (dev) check for `wc_get_loop_prop( 'is_paginated' )`? (see https://github.com/woocommerce/woocommerce/blob/5.7.0/includes/wc-template-functions.php#L1424)
-	 * @todo    [next] (dev) `get_pagenum_link()`?
-	 * @todo    [maybe] (feature) `%radio%`: fontawesome instead of standard radio buttons (same for the `%checkboxes%` if/when implemented)?
-	 * @todo    [maybe] (feature) `%checkboxes%` (similar to `%radio%`)?
-	 * @todo    [maybe] (feature) `%buttons%` (similar to "page numbers")?
-	 * @todo    [maybe] (feature) `get_option()` for `do_check_for_products`?
-	 * @todo    [maybe] (feature) `get_option()` for `do_apply_shortcodes`?
-	 * @todo    [maybe] (dev) `do_apply_shortcodes`: apply it to `template` only?
+	 * @todo    (feature) separate templates for "Showing the single result" and "Showing all %d results" (see `woocommerce/.../result-count.php`)
+	 * @todo    (feature) `select2`
+	 * @todo    (feature) customizable HTML `name` attribute, and maybe change the default value from `alg_wc_products_per_page` to `alg_wc_ppp`, or `products_per_page`, or `ppp`
+	 * @todo    (feature) customizable HTML `id` attribute
+	 * @todo    (dev) check for `wc_get_loop_prop( 'is_paginated' )`? (see https://github.com/woocommerce/woocommerce/blob/5.7.0/includes/wc-template-functions.php#L1424)
+	 * @todo    (dev) `get_pagenum_link()`?
+	 * @todo    (feature) `%radio%`: fontawesome instead of standard radio buttons (same for the `%checkboxes%` if/when implemented)?
+	 * @todo    (feature) `%checkboxes%` (similar to `%radio%`)?
+	 * @todo    (feature) `%buttons%` (similar to "page numbers")?
+	 * @todo    (feature) `get_option()` for `do_check_for_products`?
+	 * @todo    (feature) `get_option()` for `do_apply_shortcodes`?
+	 * @todo    (dev) `do_apply_shortcodes`: apply it to `template` only?
 	 */
 	function get_products_per_page_form( $args ) {
 		// Args

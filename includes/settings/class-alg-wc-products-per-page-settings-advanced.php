@@ -32,9 +32,9 @@ class Alg_WC_Products_Per_Page_Settings_Advanced extends Alg_WC_Products_Per_Pag
 	 * @version 2.1.0
 	 * @since   2.0.0
 	 *
-	 * @todo    [later] (desc) `alg_wc_products_per_page_scopes`: better desc?
-	 * @todo    [later] (desc) `alg_wc_products_per_page_wc_shortcode`: better desc?
-	 * @todo    [maybe] (desc) `alg_wc_products_per_page_form_method`: better desc, e.g. "Useful if user wants to bookmark the result"?
+	 * @todo    (desc) `alg_wc_products_per_page_scopes`: better desc?
+	 * @todo    (desc) `alg_wc_products_per_page_wc_shortcode`: better desc?
+	 * @todo    (desc) `alg_wc_products_per_page_form_method`: better desc, e.g., "Useful if user wants to bookmark the result"?
 	 */
 	function get_settings() {
 		return array(
