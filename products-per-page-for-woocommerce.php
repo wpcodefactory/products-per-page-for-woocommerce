@@ -3,12 +3,13 @@
 Plugin Name: Products per Page for WooCommerce
 Plugin URI: https://wpfactory.com/item/products-per-page-woocommerce/
 Description: Products per page selector for WooCommerce.
-Version: 2.2.0
+Version: 2.2.1
 Author: WPFactory
 Author URI: https://wpfactory.com
 Text Domain: products-per-page-for-woocommerce
 Domain Path: /langs
-WC tested up to: 8.6
+WC tested up to: 9.1
+Requires Plugins: woocommerce
 */
 
 defined( 'ABSPATH' ) || exit;
@@ -30,7 +31,7 @@ if ( 'products-per-page-for-woocommerce.php' === basename( __FILE__ ) ) {
 	}
 }
 
-defined( 'ALG_WC_PRODUCTS_PER_PAGE_VERSION' ) || define( 'ALG_WC_PRODUCTS_PER_PAGE_VERSION', '2.2.0' );
+defined( 'ALG_WC_PRODUCTS_PER_PAGE_VERSION' ) || define( 'ALG_WC_PRODUCTS_PER_PAGE_VERSION', '2.2.1' );
 
 defined( 'ALG_WC_PRODUCTS_PER_PAGE_FILE' ) || define( 'ALG_WC_PRODUCTS_PER_PAGE_FILE', __FILE__ );
 
