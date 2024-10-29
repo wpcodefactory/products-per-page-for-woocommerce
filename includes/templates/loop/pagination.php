@@ -10,11 +10,11 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce\Templates
- * @version_wc 3.3.1
+ * @see        https://woocommerce.com/document/template-structure/
+ * @package    WooCommerce\Templates
+ * @wc_version 9.3.0
  *
- * @version 2.0.0
+ * @version 2.3.0
  * @since   2.0.0
  */
 
@@ -37,7 +37,7 @@ if ( $total <= 1 ) {
 	return;
 }
 ?>
-<nav class="woocommerce-pagination">
+<nav class="woocommerce-pagination" aria-label="<?php esc_attr_e( 'Product Pagination', 'woocommerce' ); ?>">
 	<?php
 		// "Products per Page" modification starts here
 		do_action( 'alg_wc_products_per_page_before_pagination' );

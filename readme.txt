@@ -3,7 +3,7 @@ Contributors: wpcodefactory, algoritmika, anbinder, karzin, omardabbas, kousikmu
 Tags: woocommerce, products per page, woo commerce
 Requires at least: 4.4
 Tested up to: 6.6
-Stable tag: 2.2.1
+Stable tag: 2.3.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -51,9 +51,19 @@ Products per page selector for WooCommerce.
 
 == Changelog ==
 
+= 2.3.0 - 29/10/2024 =
+* Dev - Plugin settings moved to the "WPFactory" menu.
+* Dev - "Recommendations" added.
+* Dev - "Key Manager" added.
+* Dev - `alg-wc-products-per-page-form` HTML class added.
+* Dev - WooCommerce "Pagination" template updated.
+* Dev - Code refactoring.
+* WC tested up to: 9.3.
+
 = 2.2.1 - 31/07/2024 =
 * WC tested up to: 9.1.
 * Tested up to: 6.6.
+* WooCommerce added to the "Requires Plugins" (plugin header).
 
 = 2.2.0 - 19/02/2024 =
 * Dev - PHP 8.2 compatibility - "Creation of dynamic property is deprecated" notice fixed.

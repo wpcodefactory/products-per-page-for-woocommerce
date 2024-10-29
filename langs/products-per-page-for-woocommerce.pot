@@ -1,60 +1,32 @@
-# Copyright (C) 2024 WPFactory
-# This file is distributed under the same license as the Products per Page for WooCommerce Pro plugin.
-msgid ""
-msgstr ""
-"Project-Id-Version: products-per-page-for-woocommerce 2.2.1\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/products-per-page-for-woocommerce\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-07-31T07:31:54+02:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.9.0\n"
-"X-Domain: products-per-page-for-woocommerce\n"
-
-#. Plugin Name of the plugin
-msgid "Products per Page for WooCommerce Pro"
-msgstr ""
-
-#. Plugin URI of the plugin
-msgid "https://wpfactory.com/item/products-per-page-woocommerce/"
-msgstr ""
-
-#. Description of the plugin
-msgid "Products per page selector for WooCommerce."
-msgstr ""
-
-#. Author of the plugin
-msgid "WPFactory"
-msgstr ""
-
-#. Author URI of the plugin
-msgid "https://wpfactory.com"
-msgstr ""
-
-#: includes/class-alg-wc-products-per-page-core.php:146
-#: includes/class-alg-wc-products-per-page-core.php:360
-#: includes/class-alg-wc-products-per-page-core.php:404
+#: includes/class-alg-wc-products-per-page-core.php:153
+#: includes/class-alg-wc-products-per-page-core.php:369
+#: includes/class-alg-wc-products-per-page-core.php:421
 #: includes/pro/class-alg-wc-products-per-page-widget.php:71
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:143
-msgid "Products <strong>%from% - %to%</strong> from <strong>%total%</strong>. Products on page %dropdown%"
+msgid ""
+"Products <strong>%from% - %to%</strong> from <strong>%total%</strong>. "
+"Products on page %dropdown%"
 msgstr ""
 
-#: includes/class-alg-wc-products-per-page.php:161
+#: includes/class-alg-wc-products-per-page.php:179
+msgid "Settings"
+msgstr ""
+
+#: includes/class-alg-wc-products-per-page.php:183
 msgid "Go Pro"
 msgstr ""
 
-#: includes/pro/class-alg-wc-products-per-page-widget.php:26
-msgid "Products per page selector."
-msgstr ""
-
+#: includes/class-alg-wc-products-per-page.php:227
+#: includes/class-alg-wc-products-per-page.php:228
 #: includes/pro/class-alg-wc-products-per-page-widget.php:28
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:67
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:120
 #: includes/settings/class-alg-wc-settings-products-per-page.php:25
 msgid "Products per Page"
+msgstr ""
+
+#: includes/pro/class-alg-wc-products-per-page-widget.php:26
+msgid "Products per page selector."
 msgstr ""
 
 #: includes/pro/class-alg-wc-products-per-page-widget.php:64
@@ -69,6 +41,7 @@ msgstr ""
 
 #: includes/pro/class-alg-wc-products-per-page-widget.php:69
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:140
+#, php-format
 msgid "Available placeholders: %s."
 msgstr ""
 
@@ -81,7 +54,10 @@ msgstr ""
 #: includes/pro/class-alg-wc-products-per-page-widget.php:83
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:149
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:158
-msgid "In case of %s it is applied to each %s tag. In case of %s it is applied to the %s tag."
+#, php-format
+msgid ""
+"In case of %s it is applied to each %s tag. In case of %s it is applied to "
+"the %s tag."
 msgstr ""
 
 #: includes/pro/class-alg-wc-products-per-page-widget.php:82
@@ -106,6 +82,7 @@ msgstr ""
 
 #: includes/pro/class-alg-wc-products-per-page-widget.php:100
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:181
+#, php-format
 msgid "This is used for the %s placeholder - to \"glue\" the radio buttons."
 msgstr ""
 
@@ -122,6 +99,7 @@ msgid "Form method"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:48
+#, php-format
 msgid "%s method will append %s parameter to the URL, e.g.: %s"
 msgstr ""
 
@@ -137,6 +115,7 @@ msgid "Enable"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:62
+#, php-format
 msgid "Apply selector in WooCommerce %s shortcode."
 msgstr ""
 
@@ -210,6 +189,7 @@ msgid "Save in cookie"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:110
+#, php-format
 msgid "%s cookie is used to save user's \"products per page\" selection."
 msgstr ""
 
@@ -290,6 +270,7 @@ msgid "Position(s)"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:95
+#, php-format
 msgid "Position priority: %s"
 msgstr ""
 
@@ -310,7 +291,10 @@ msgid "One per line."
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:109
-msgid "If you want to set the priority for the action, use vertical bar symbol, e.g.: %s"
+#, php-format
+msgid ""
+"If you want to set the priority for the action, use vertical bar symbol, e."
+"g.: %s"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:117
@@ -318,6 +302,7 @@ msgid "Widget"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:119
+#, php-format
 msgid "Will add \"%s\" widget to %s."
 msgstr ""
 
@@ -338,6 +323,7 @@ msgid "Select options"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:199
+#, php-format
 msgid "Enter one option per line in %s format. Use %s for \"all products\"."
 msgstr ""
 
@@ -368,4 +354,8 @@ msgstr ""
 #: includes/settings/class-alg-wc-settings-products-per-page.php:98
 #: includes/settings/class-alg-wc-settings-products-per-page.php:113
 msgid "Your settings have been reset."
+msgstr ""
+
+#: includes/templates/loop/pagination.php:40
+msgid "Product Pagination"
 msgstr ""

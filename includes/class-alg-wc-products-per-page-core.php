@@ -2,7 +2,7 @@
 /**
  * Products per Page for WooCommerce - Core Class
  *
- * @version 2.2.0
+ * @version 2.3.0
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -33,7 +33,7 @@ class Alg_WC_Products_Per_Page_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 2.1.0
+	 * @version 2.3.0
 	 * @since   1.0.0
 	 *
 	 * @todo    (dev) remove `get_option( 'alg_products_per_page_position_priority', 40 )`
@@ -42,14 +42,17 @@ class Alg_WC_Products_Per_Page_Core {
 	 */
 	function __construct() {
 		if ( 'yes' === get_option( 'alg_wc_products_per_page_enabled', 'yes' ) ) {
+
 			// Session
 			if ( 'yes' === get_option( 'alg_wc_products_per_page_session_enabled', 'yes' ) ) {
 				add_action( 'init', array( $this, 'set_session' ) );
 			}
+
 			// Cookie
 			if ( 'yes' === get_option( 'alg_wc_products_per_page_cookie_enabled', 'yes' ) ) {
 				add_action( 'init', array( $this, 'set_cookie' ) );
 			}
+
 			// Set products per page
 			add_filter( 'loop_shop_per_page',                                     array( $this, 'set_products_per_page' ),           PHP_INT_MAX );
 			add_filter( 'jet-woo-builder/shortcodes/jet-woo-products/query-args', array( $this, 'set_products_per_page_query_arg' ), PHP_INT_MAX );
@@ -57,18 +60,19 @@ class Alg_WC_Products_Per_Page_Core {
 				add_filter( 'woocommerce_shortcode_products_query',               array( $this, 'set_products_per_page_query_arg' ), PHP_INT_MAX );
 				add_filter( 'woocommerce_shortcode_products_query_results',       array( $this, 'save_wc_shortcode_results' ),       PHP_INT_MAX );
 			}
+
 			// Frontend
 			$positions  = get_option( 'alg_products_per_page_position', array( 'woocommerce_before_shop_loop' ) );
 			$priorities = get_option( 'alg_wc_products_per_page_position_priorities', array() );
 			foreach ( $positions as $position ) {
-				$priority = ( isset( $priorities[ $position ] ) ? $priorities[ $position ] : get_option( 'alg_products_per_page_position_priority', 40 ) );
+				$priority = ( $priorities[ $position ] ?? get_option( 'alg_products_per_page_position_priority', 40 ) );
 				add_action( $position, array( $this, 'add_products_per_page_form' ), $priority );
 			}
 			if ( '' !== ( $custom_positions = get_option( 'alg_wc_products_per_page_position_custom', '' ) ) ) {
 				$custom_positions = array_map( 'trim', explode( PHP_EOL, $custom_positions ) );
 				foreach ( $custom_positions as $position ) {
 					$position = array_map( 'trim', explode( '|', $position ) );
-					$priority = ( isset( $position[1] ) ? $position[1] : get_option( 'alg_products_per_page_position_priority', 40 ) );
+					$priority = ( $position[1] ?? get_option( 'alg_products_per_page_position_priority', 40 ) );
 					add_action( $position[0], array( $this, 'add_products_per_page_form' ), $priority );
 				}
 			}
@@ -78,12 +82,15 @@ class Alg_WC_Products_Per_Page_Core {
 			) {
 				add_filter( 'wc_get_template', array( $this, 'replace_pagination_template' ), PHP_INT_MAX, 2 );
 			}
+
 			// Custom CSS
 			add_action( 'wp_head', array( $this, 'add_custom_css' ) );
+
 			// Shortcodes
 			add_shortcode( 'alg_wc_products_per_page', array( $this, 'form_shortcode' ) );
 			add_shortcode( 'alg_wc_ppp_form',          array( $this, 'form_shortcode' ) );
 			add_shortcode( 'alg_wc_ppp_translate',     array( $this, 'language_shortcode' ) );
+
 		}
 	}
 
@@ -159,7 +166,8 @@ class Alg_WC_Products_Per_Page_Core {
 		}
 		return $this->get_products_per_page_form( array_merge( $atts, array(
 			'form_method'    => get_option( 'alg_wc_products_per_page_form_method', 'POST' ),
-			'select_options' => apply_filters( 'alg_wc_products_per_page_select_options', implode( PHP_EOL, array( '10|10', '25|25', '50|50', '100|100', 'All|-1' ) ) ),
+			'select_options' => apply_filters( 'alg_wc_products_per_page_select_options',
+				implode( PHP_EOL, array( '10|10', '25|25', '50|50', '100|100', 'All|-1' ) ) ),
 		) ) );
 	}
 
@@ -338,7 +346,7 @@ class Alg_WC_Products_Per_Page_Core {
 	/**
 	 * get_products_per_page_form.
 	 *
-	 * @version 2.0.0
+	 * @version 2.3.0
 	 * @since   1.5.0
 	 *
 	 * @todo    (feature) separate templates for "Showing the single result" and "Showing all %d results" (see `woocommerce/.../result-count.php`)
@@ -355,6 +363,7 @@ class Alg_WC_Products_Per_Page_Core {
 	 * @todo    (dev) `do_apply_shortcodes`: apply it to `template` only?
 	 */
 	function get_products_per_page_form( $args ) {
+
 		// Args
 		$default_args = array(
 			'template'              => __( 'Products <strong>%from% - %to%</strong> from <strong>%total%</strong>. Products on page %dropdown%', 'products-per-page-for-woocommerce' ),
@@ -369,6 +378,7 @@ class Alg_WC_Products_Per_Page_Core {
 			'do_apply_shortcodes'   => true,
 		);
 		$args = array_replace( $default_args, $args );
+
 		// Loop props
 		if ( $args['do_check_for_products'] && ! woocommerce_products_will_display() ) {
 			return '';
@@ -376,6 +386,7 @@ class Alg_WC_Products_Per_Page_Core {
 		$per_page = $this->get_loop_prop( 'per_page' );
 		$current  = $this->get_loop_prop( 'current_page' );
 		$total    = $this->get_loop_prop( 'total' );
+
 		// Placeholders
 		$placeholders = array(
 			'%from%'     => $this->get_loop_prop( 'from', array( 'per_page' => $per_page, 'current' => $current ) ),
@@ -385,12 +396,17 @@ class Alg_WC_Products_Per_Page_Core {
 			'%radio%'    => $this->get_radio( $per_page, $args ),
 		);
 		$placeholders['%select_form%'] = $placeholders['%dropdown%']; // deprecated
+
 		// Final HTML
 		$content = str_replace( array_keys( $placeholders ), $placeholders, $args['template'] );
 		$action  = remove_query_arg( 'product-page', get_pagenum_link( 1, false ) );
-		$form    = '<form action="' . $action . '" method="' . $args['form_method'] . '">' . $content . $this->get_hidden_fields( $args['form_method'] ) . '</form>';
+		$form    = '<form action="' . $action . '" method="' . $args['form_method'] . '" class="alg-wc-products-per-page-form">' .
+			$content .
+			$this->get_hidden_fields( $args['form_method'] ) .
+		'</form>';
 		$html    = $args['before_html'] . $form . $args['after_html'];
 		return ( $args['do_apply_shortcodes'] ? do_shortcode( $html ) : $html );
+
 	}
 
 	/**
@@ -401,14 +417,16 @@ class Alg_WC_Products_Per_Page_Core {
 	 */
 	function add_products_per_page_form() {
 		echo $this->get_products_per_page_form( array(
-			'template'       => get_option( 'alg_products_per_page_text', __( 'Products <strong>%from% - %to%</strong> from <strong>%total%</strong>. Products on page %dropdown%', 'products-per-page-for-woocommerce' ) ),
+			'template'       => get_option( 'alg_products_per_page_text',
+				__( 'Products <strong>%from% - %to%</strong> from <strong>%total%</strong>. Products on page %dropdown%', 'products-per-page-for-woocommerce' ) ),
 			'select_class'   => get_option( 'alg_wc_products_per_page_select_class', 'sortby rounded_corners_class' ),
 			'select_style'   => get_option( 'alg_wc_products_per_page_select_style', '' ),
 			'form_method'    => get_option( 'alg_wc_products_per_page_form_method', 'POST' ),
 			'before_html'    => get_option( 'alg_wc_products_per_page_before_html', '<div class="clearfix"></div><div>' ),
 			'after_html'     => get_option( 'alg_wc_products_per_page_after_html', '</div>' ),
 			'radio_glue'     => get_option( 'alg_wc_products_per_page_radio_glue', ' ' ),
-			'select_options' => apply_filters( 'alg_wc_products_per_page_select_options', implode( PHP_EOL, array( '10|10', '25|25', '50|50', '100|100', 'All|-1' ) ) ),
+			'select_options' => apply_filters( 'alg_wc_products_per_page_select_options',
+				implode( PHP_EOL, array( '10|10', '25|25', '50|50', '100|100', 'All|-1' ) ) ),
 		) );
 	}
 
@@ -433,7 +451,10 @@ class Alg_WC_Products_Per_Page_Core {
 	 */
 	function set_session() {
 		if ( isset( $_REQUEST['alg_wc_products_per_page'] ) && ! empty( WC()->session ) ) {
-			if ( ! WC()->session->has_session() && 'yes' === get_option( 'alg_wc_products_per_page_session_force_start', 'yes' ) ) {
+			if (
+				! WC()->session->has_session() &&
+				'yes' === get_option( 'alg_wc_products_per_page_session_force_start', 'yes' )
+			) {
 				WC()->session->set_customer_session_cookie( true );
 			}
 			WC()->session->set( 'alg_wc_products_per_page', intval( $_REQUEST['alg_wc_products_per_page'] ) );
@@ -451,7 +472,10 @@ class Alg_WC_Products_Per_Page_Core {
 		foreach ( array( 'require', 'exclude' ) as $scope ) {
 			if ( ! empty( $scopes[ $scope ] ) ) {
 				foreach ( $scopes[ $scope ] as $func ) {
-					if ( function_exists( $func ) && ( ( 'require' === $scope && ! $func() ) || ( 'exclude' === $scope && $func() ) ) ) {
+					if (
+						function_exists( $func ) &&
+						( ( 'require' === $scope && ! $func() ) || ( 'exclude' === $scope && $func() ) )
+					) {
 						return false;
 					}
 				}
@@ -494,10 +518,17 @@ class Alg_WC_Products_Per_Page_Core {
 		if ( isset( $_REQUEST['alg_wc_products_per_page'] ) ) {
 			return intval( $_REQUEST['alg_wc_products_per_page'] );
 
-		} elseif ( 'yes' === get_option( 'alg_wc_products_per_page_session_enabled', 'yes' ) && isset( WC()->session ) && ( $value = WC()->session->get( 'alg_wc_products_per_page' ) ) ) {
+		} elseif (
+			'yes' === get_option( 'alg_wc_products_per_page_session_enabled', 'yes' ) &&
+			isset( WC()->session ) &&
+			( $value = WC()->session->get( 'alg_wc_products_per_page' ) )
+		) {
 			return $value;
 
-		} elseif ( 'yes' === get_option( 'alg_wc_products_per_page_cookie_enabled', 'yes' ) && isset( $_COOKIE['alg_wc_products_per_page'] ) ) {
+		} elseif (
+			'yes' === get_option( 'alg_wc_products_per_page_cookie_enabled', 'yes' ) &&
+			isset( $_COOKIE['alg_wc_products_per_page'] )
+		) {
 			return intval( $_COOKIE['alg_wc_products_per_page'] );
 
 		} else { // default
