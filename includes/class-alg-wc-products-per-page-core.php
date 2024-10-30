@@ -2,7 +2,7 @@
 /**
  * Products per Page for WooCommerce - Core Class
  *
- * @version 2.3.0
+ * @version 2.3.1
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -33,7 +33,7 @@ class Alg_WC_Products_Per_Page_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 2.3.0
+	 * @version 2.3.1
 	 * @since   1.0.0
 	 *
 	 * @todo    (dev) remove `get_option( 'alg_products_per_page_position_priority', 40 )`
@@ -62,8 +62,8 @@ class Alg_WC_Products_Per_Page_Core {
 			}
 
 			// Frontend
-			$positions  = get_option( 'alg_products_per_page_position', array( 'woocommerce_before_shop_loop' ) );
-			$priorities = get_option( 'alg_wc_products_per_page_position_priorities', array() );
+			$positions  = (array) get_option( 'alg_products_per_page_position', array( 'woocommerce_before_shop_loop' ) );
+			$priorities = (array) get_option( 'alg_wc_products_per_page_position_priorities', array() );
 			foreach ( $positions as $position ) {
 				$priority = ( $priorities[ $position ] ?? get_option( 'alg_products_per_page_position_priority', 40 ) );
 				add_action( $position, array( $this, 'add_products_per_page_form' ), $priority );
