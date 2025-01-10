@@ -2,7 +2,7 @@
 /**
  * Products per Page for WooCommerce - Settings
  *
- * @version 2.0.0
+ * @version 2.4.0
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -17,18 +17,22 @@ class Alg_WC_Settings_Products_Per_Page extends WC_Settings_Page {
 	/**
 	 * Constructor.
 	 *
-	 * @version 2.0.0
+	 * @version 2.4.0
 	 * @since   1.0.0
 	 */
 	function __construct() {
+
 		$this->id    = 'alg_wc_products_per_page';
 		$this->label = __( 'Products per Page', 'products-per-page-for-woocommerce' );
 		parent::__construct();
+
 		add_filter( 'woocommerce_admin_settings_sanitize_option', array( $this, 'alg_wc_ppp_sanitize' ), PHP_INT_MAX, 3 );
+
 		// Sections
-		require_once( 'class-alg-wc-products-per-page-settings-section.php' );
-		require_once( 'class-alg-wc-products-per-page-settings-general.php' );
-		require_once( 'class-alg-wc-products-per-page-settings-advanced.php' );
+		require_once plugin_dir_path( __FILE__ ) . 'class-alg-wc-products-per-page-settings-section.php';
+		require_once plugin_dir_path( __FILE__ ) . 'class-alg-wc-products-per-page-settings-general.php';
+		require_once plugin_dir_path( __FILE__ ) . 'class-alg-wc-products-per-page-settings-advanced.php';
+
 	}
 
 	/**
@@ -105,12 +109,13 @@ class Alg_WC_Settings_Products_Per_Page extends WC_Settings_Page {
 	/**
 	 * admin_notice_settings_reset.
 	 *
-	 * @version 1.2.0
+	 * @version 2.4.0
 	 * @since   1.2.0
 	 */
 	function admin_notice_settings_reset() {
 		echo '<div class="notice notice-warning is-dismissible"><p><strong>' .
-			__( 'Your settings have been reset.', 'products-per-page-for-woocommerce' ) . '</strong></p></div>';
+			esc_html__( 'Your settings have been reset.', 'products-per-page-for-woocommerce' ) .
+		'</strong></p></div>';
 	}
 
 	/**

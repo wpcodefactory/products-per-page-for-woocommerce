@@ -117,7 +117,8 @@ final class Alg_WC_Products_Per_Page {
 	 */
 	function wc_declare_compatibility() {
 		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
-			$files = ( defined( 'ALG_WC_PRODUCTS_PER_PAGE_FILE_FREE' ) ?
+			$files = (
+				defined( 'ALG_WC_PRODUCTS_PER_PAGE_FILE_FREE' ) ?
 				array( ALG_WC_PRODUCTS_PER_PAGE_FILE, ALG_WC_PRODUCTS_PER_PAGE_FILE_FREE ) :
 				array( ALG_WC_PRODUCTS_PER_PAGE_FILE )
 			);
@@ -175,14 +176,17 @@ final class Alg_WC_Products_Per_Page {
 	 */
 	function action_links( $links ) {
 		$custom_links = array();
+
 		$custom_links[] = '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_products_per_page' ) . '">' .
 			__( 'Settings', 'products-per-page-for-woocommerce' ) .
 		'</a>';
+
 		if ( 'products-per-page-for-woocommerce.php' === basename( ALG_WC_PRODUCTS_PER_PAGE_FILE ) ) {
 			$custom_links[] = '<a target="_blank" style="font-weight: bold; color: green;" href="https://wpfactory.com/item/products-per-page-woocommerce/">' .
 				__( 'Go Pro', 'products-per-page-for-woocommerce' ) .
 			'</a>';
 		}
+
 		return array_merge( $custom_links, $links );
 	}
 

@@ -18,9 +18,7 @@
  * @since   2.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined( 'ABSPATH' ) || exit;
 
 $total   = isset( $total ) ? $total : wc_get_loop_prop( 'total_pages' );
 $current = isset( $current ) ? $current : wc_get_loop_prop( 'current_page' );
@@ -37,14 +35,14 @@ if ( $total <= 1 ) {
 	return;
 }
 ?>
-<nav class="woocommerce-pagination" aria-label="<?php esc_attr_e( 'Product Pagination', 'woocommerce' ); ?>">
+<nav class="woocommerce-pagination" aria-label="<?php esc_attr_e( 'Product Pagination', 'woocommerce' ); /* phpcs:ignore WordPress.WP.I18n.TextDomainMismatch */ ?>">
 	<?php
 		// "Products per Page" modification starts here
 		do_action( 'alg_wc_products_per_page_before_pagination' );
 		// "Products per Page" modification ends here
 	?>
 	<?php
-	echo paginate_links(
+	echo paginate_links( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		apply_filters(
 			'woocommerce_pagination_args',
 			array( // WPCS: XSS ok.

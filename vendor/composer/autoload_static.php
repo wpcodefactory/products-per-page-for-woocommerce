@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit3fe5908a44a073196071520f1057f078
+class ComposerStaticInitWPFactoryProductsPerPageForWooCommerce
 {
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
@@ -20,7 +20,7 @@ class ComposerStaticInit3fe5908a44a073196071520f1057f078
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInit3fe5908a44a073196071520f1057f078::$classMap;
+            $loader->classMap = ComposerStaticInitWPFactoryProductsPerPageForWooCommerce::$classMap;
 
         }, null, ClassLoader::class);
     }

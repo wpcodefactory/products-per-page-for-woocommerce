@@ -1,9 +1,9 @@
-=== Products per Page for WooCommerce ===
-Contributors: wpcodefactory, algoritmika, anbinder, karzin, omardabbas, kousikmukherjeeli
+=== Number of Products per Page - Pagination Manager for WooCommerce ===
+Contributors: wpcodefactory, algoritmika, anbinder, karzin, omardabbas
 Tags: woocommerce, products per page, woo commerce
 Requires at least: 4.4
-Tested up to: 6.6
-Stable tag: 2.3.1
+Tested up to: 6.7
+Stable tag: 2.4.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -11,7 +11,7 @@ Products per page selector for WooCommerce.
 
 == Description ==
 
-**Products per Page for WooCommerce** plugin lets you add **products per page selector** to the frontend of your WooCommerce store.
+**Number of Products per Page - Pagination Manager for WooCommerce** plugin lets you add **products per page selector** to the frontend of your WooCommerce store.
 
 ### &#9989; Main Features ###
 
@@ -25,7 +25,7 @@ Products per page selector for WooCommerce.
 
 ### &#127942; Premium Version ###
 
-[Products per Page for WooCommerce Pro](https://wpfactory.com/item/products-per-page-woocommerce/) plugin version includes:
+[Number of Products per Page - Pagination Manager for WooCommerce Pro](https://wpfactory.com/item/products-per-page-woocommerce/) plugin version includes:
 
 * Customizable **select options**.
 * "Products per Page" **widget**.
@@ -43,13 +43,25 @@ Products per page selector for WooCommerce.
 
 1. Upload the entire plugin folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the "Plugins" menu in WordPress.
-3. Start by visiting plugin settings at "WooCommerce > Settings > Products per Page".
+3. Start by visiting plugin settings at "WPFactory > Products per Page".
 
 == Screenshots ==
 
-1. Products per Page for WooCommerce - Frontend example
+1. Number of Products per Page - Pagination Manager for WooCommerce - Frontend example
 
 == Changelog ==
+
+= 2.4.0 - 10/01/2025 =
+* Dev - Security - Output escaped.
+* Dev - Security - Input sanitized.
+* Dev - Recommendations - Library updated.
+* Dev - Key Manager - Library updated.
+* Dev - Composer - `autoloader-suffix` param added.
+* Dev - Code refactoring.
+* Dev - Coding standards improved.
+* WC tested up to: 9.5.
+* Tested up to: 6.7.
+* Plugin name updated.
 
 = 2.3.1 - 30/10/2024 =
 * Dev - Code refactoring.
