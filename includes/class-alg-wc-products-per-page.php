@@ -2,7 +2,7 @@
 /**
  * Products per Page for WooCommerce - Main Class
  *
- * @version 2.3.0
+ * @version 2.5.0
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -37,7 +37,7 @@ final class Alg_WC_Products_Per_Page {
 	protected static $_instance = null;
 
 	/**
-	 * Main Alg_WC_Products_Per_Page Instance
+	 * Main Alg_WC_Products_Per_Page Instance.
 	 *
 	 * Ensures only one instance of Alg_WC_Products_Per_Page is loaded or can be loaded.
 	 *
@@ -123,7 +123,11 @@ final class Alg_WC_Products_Per_Page {
 				array( ALG_WC_PRODUCTS_PER_PAGE_FILE )
 			);
 			foreach ( $files as $file ) {
-				\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', $file, true );
+				\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility(
+					'custom_order_tables',
+					$file,
+					true
+				);
 			}
 		}
 	}
@@ -141,7 +145,7 @@ final class Alg_WC_Products_Per_Page {
 	/**
 	 * admin.
 	 *
-	 * @version 2.3.0
+	 * @version 2.5.0
 	 * @since   1.2.0
 	 */
 	function admin() {
@@ -150,10 +154,10 @@ final class Alg_WC_Products_Per_Page {
 		add_filter( 'plugin_action_links_' . plugin_basename( ALG_WC_PRODUCTS_PER_PAGE_FILE ), array( $this, 'action_links' ) );
 
 		// "Recommendations" page
-		$this->add_cross_selling_library();
+		add_action( 'init', array( $this, 'add_cross_selling_library' ) );
 
 		// WC Settings tab as WPFactory submenu item
-		$this->move_wc_settings_tab_to_wpfactory_menu();
+		add_action( 'init', array( $this, 'move_wc_settings_tab_to_wpfactory_menu' ) );
 
 		// Settings
 		add_filter( 'woocommerce_get_settings_pages', array( $this, 'add_woocommerce_settings_tab' ) );

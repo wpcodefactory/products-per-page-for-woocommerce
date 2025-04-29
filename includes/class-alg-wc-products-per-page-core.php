@@ -2,7 +2,7 @@
 /**
  * Products per Page for WooCommerce - Core Class
  *
- * @version 2.4.0
+ * @version 2.5.0
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -95,6 +95,52 @@ class Alg_WC_Products_Per_Page_Core {
 	}
 
 	/**
+	 * get_allowed_form_html.
+	 *
+	 * @version 2.5.0
+	 * @since   2.5.0
+	 */
+	function get_allowed_form_html() {
+		$allowed_html = array(
+			'form' => array(
+				'action'         => true,
+				'accept'         => true,
+				'accept-charset' => true,
+				'enctype'        => true,
+				'method'         => true,
+				'name'           => true,
+				'target'         => true,
+				'class'          => true,
+			),
+			'input' => array(
+				'type'     => true,
+				'id'       => true,
+				'name'     => true,
+				'class'    => true,
+				'style'    => true,
+				'value'    => true,
+				'onchange' => true,
+				'checked'  => true,
+			),
+			'select' => array(
+				'id'       => true,
+				'name'     => true,
+				'class'    => true,
+				'style'    => true,
+				'onchange' => true,
+			),
+			'option' => array(
+				'value'    => true,
+				'selected' => true,
+			),
+		);
+		return array_merge(
+			wp_kses_allowed_html( 'post' ),
+			$allowed_html
+		);
+	}
+
+	/**
 	 * add_custom_css.
 	 *
 	 * @version 2.0.0
@@ -102,7 +148,7 @@ class Alg_WC_Products_Per_Page_Core {
 	 */
 	function add_custom_css() {
 		if ( '' !== ( $custom_css = get_option( 'alg_wc_products_per_page_custom_css', '' ) ) ) {
-			echo "<style>{$custom_css}</style>";
+			echo "<style>{$custom_css}</style>"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 
@@ -117,38 +163,45 @@ class Alg_WC_Products_Per_Page_Core {
 	 * @todo    (dev) check "Product Filters for WooCommerce" plugin filters (i.e., instead of overriding the pagination template)?
 	 */
 	function replace_pagination_template( $located, $template_name ) {
-		return ( 'loop/pagination.php' === $template_name && apply_filters( 'alg_wc_products_per_page_replace_pagination_template', true ) ?
-			alg_wc_products_per_page()->plugin_path() . '/includes/templates/loop/pagination.php' : $located );
+		return (
+			(
+				'loop/pagination.php' === $template_name &&
+				apply_filters( 'alg_wc_products_per_page_replace_pagination_template', true )
+			) ?
+			alg_wc_products_per_page()->plugin_path() . '/includes/templates/loop/pagination.php' :
+			$located
+		);
 	}
 
 	/**
 	 * language_shortcode.
 	 *
-	 * @version 1.3.2
+	 * @version 2.5.0
 	 * @since   1.3.2
 	 */
 	function language_shortcode( $atts, $content = '' ) {
 		// E.g.: `[alg_wc_ppp_translate lang="EN,DE" lang_text="Text for EN & DE" not_lang_text="Text for other languages"]`
 		if ( isset( $atts['lang_text'] ) && isset( $atts['not_lang_text'] ) && ! empty( $atts['lang'] ) ) {
 			return ( ! defined( 'ICL_LANGUAGE_CODE' ) || ! in_array( strtolower( ICL_LANGUAGE_CODE ), array_map( 'trim', explode( ',', strtolower( $atts['lang'] ) ) ) ) ) ?
-				$atts['not_lang_text'] : $atts['lang_text'];
+				wp_kses_post( $atts['not_lang_text'] ) : wp_kses_post( $atts['lang_text'] );
 		}
 		// E.g.: `[alg_wc_ppp_translate lang="EN,DE"]Text for EN & DE[/alg_wc_ppp_translate][alg_wc_ppp_translate not_lang="EN,DE"]Text for other languages[/alg_wc_ppp_translate]`
 		return (
 			( ! empty( $atts['lang'] )     && ( ! defined( 'ICL_LANGUAGE_CODE' ) || ! in_array( strtolower( ICL_LANGUAGE_CODE ), array_map( 'trim', explode( ',', strtolower( $atts['lang'] ) ) ) ) ) ) ||
 			( ! empty( $atts['not_lang'] ) &&     defined( 'ICL_LANGUAGE_CODE' ) &&   in_array( strtolower( ICL_LANGUAGE_CODE ), array_map( 'trim', explode( ',', strtolower( $atts['not_lang'] ) ) ) ) )
-		) ? '' : $content;
+		) ? '' : wp_kses_post( $content );
 	}
 
 	/**
 	 * form_shortcode.
 	 *
-	 * @version 2.0.0
+	 * @version 2.5.0
 	 * @since   1.5.0
 	 *
 	 * @todo    (feature) add `select_options` and `form_method` atts?
 	 */
 	function form_shortcode( $atts, $content = '' ) {
+
 		$default_atts = array(
 			'template'     => get_option( 'alg_products_per_page_text', __( 'Products <strong>%from% - %to%</strong> from <strong>%total%</strong>. Products on page %dropdown%', 'products-per-page-for-woocommerce' ) ), // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText, WordPress.WP.I18n.MissingTranslatorsComment
 			'select_class' => get_option( 'alg_wc_products_per_page_select_class', 'sortby rounded_corners_class' ),
@@ -157,18 +210,28 @@ class Alg_WC_Products_Per_Page_Core {
 			'after_html'   => get_option( 'alg_wc_products_per_page_after_html', '</div>' ),
 			'radio_glue'   => get_option( 'alg_wc_products_per_page_radio_glue', ' ' ),
 		);
+
 		$atts = shortcode_atts( $default_atts, $atts, 'alg_wc_ppp_form' );
+
 		$atts['template']    = str_replace( array( '{', '}' ), array( '[', ']' ), $atts['template'] );
 		$atts['before_html'] = str_replace( array( '{', '}' ), array( '[', ']' ), $atts['before_html'] );
 		$atts['after_html']  = str_replace( array( '{', '}' ), array( '[', ']' ), $atts['after_html'] );
+
 		if ( '' !== $content ) {
 			$atts['template'] = $content;
 		}
-		return $this->get_products_per_page_form( array_merge( $atts, array(
+
+		$products_per_page_form = $this->get_products_per_page_form( array_merge( $atts, array(
 			'form_method'    => get_option( 'alg_wc_products_per_page_form_method', 'POST' ),
 			'select_options' => apply_filters( 'alg_wc_products_per_page_select_options',
 				implode( PHP_EOL, array( '10|10', '25|25', '50|50', '100|100', 'All|-1' ) ) ),
 		) ) );
+
+		return wp_kses(
+			$products_per_page_form,
+			$this->get_allowed_form_html()
+		);
+
 	}
 
 	/**
@@ -395,7 +458,7 @@ class Alg_WC_Products_Per_Page_Core {
 			'%dropdown%' => $this->get_select( $per_page, $args ),
 			'%radio%'    => $this->get_radio( $per_page, $args ),
 		);
-		$placeholders['%select_form%'] = $placeholders['%dropdown%']; // deprecated
+		$placeholders['%select_form%'] = $placeholders['%dropdown%']; // deprecated `%select_form%`
 
 		// Final HTML
 		$content = str_replace( array_keys( $placeholders ), $placeholders, $args['template'] );
@@ -412,22 +475,26 @@ class Alg_WC_Products_Per_Page_Core {
 	/**
 	 * add_products_per_page_form.
 	 *
-	 * @version 2.4.0
+	 * @version 2.5.0
 	 * @since   1.0.0
 	 */
 	function add_products_per_page_form() {
-		echo $this->get_products_per_page_form( array(
-			'template'       => get_option( 'alg_products_per_page_text',
-				__( 'Products <strong>%from% - %to%</strong> from <strong>%total%</strong>. Products on page %dropdown%', 'products-per-page-for-woocommerce' ) ), // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText, WordPress.WP.I18n.MissingTranslatorsComment
+		$products_per_page_form = $this->get_products_per_page_form( array(
+			'template'       => wp_kses_post( get_option( 'alg_products_per_page_text',
+				__( 'Products <strong>%from% - %to%</strong> from <strong>%total%</strong>. Products on page %dropdown%', 'products-per-page-for-woocommerce' ) ) ), // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText, WordPress.WP.I18n.MissingTranslatorsComment
 			'select_class'   => esc_attr( get_option( 'alg_wc_products_per_page_select_class', 'sortby rounded_corners_class' ) ),
 			'select_style'   => esc_attr( get_option( 'alg_wc_products_per_page_select_style', '' ) ),
 			'form_method'    => esc_attr( get_option( 'alg_wc_products_per_page_form_method', 'POST' ) ),
-			'before_html'    => get_option( 'alg_wc_products_per_page_before_html', '<div class="clearfix"></div><div>' ),
-			'after_html'     => get_option( 'alg_wc_products_per_page_after_html', '</div>' ),
-			'radio_glue'     => get_option( 'alg_wc_products_per_page_radio_glue', ' ' ),
+			'before_html'    => wp_kses_post( get_option( 'alg_wc_products_per_page_before_html', '<div class="clearfix"></div><div>' ) ),
+			'after_html'     => wp_kses_post( get_option( 'alg_wc_products_per_page_after_html', '</div>' ) ),
+			'radio_glue'     => wp_kses_post( get_option( 'alg_wc_products_per_page_radio_glue', ' ' ) ),
 			'select_options' => esc_html( apply_filters( 'alg_wc_products_per_page_select_options',
 				implode( PHP_EOL, array( '10|10', '25|25', '50|50', '100|100', 'All|-1' ) ) ) ),
 		) );
+		echo wp_kses(
+			$products_per_page_form,
+			$this->get_allowed_form_html()
+		);
 	}
 
 	/**
