@@ -26,7 +26,12 @@ class Alg_WC_Settings_Products_Per_Page extends WC_Settings_Page {
 		$this->label = __( 'Products per Page', 'products-per-page-for-woocommerce' );
 		parent::__construct();
 
-		add_filter( 'woocommerce_admin_settings_sanitize_option', array( $this, 'alg_wc_ppp_sanitize' ), PHP_INT_MAX, 3 );
+		add_filter(
+			'woocommerce_admin_settings_sanitize_option',
+			array( $this, 'alg_wc_ppp_sanitize' ),
+			PHP_INT_MAX,
+			3
+		);
 
 		// Sections
 		require_once plugin_dir_path( __FILE__ ) . 'class-alg-wc-products-per-page-settings-section.php';
@@ -62,25 +67,28 @@ class Alg_WC_Settings_Products_Per_Page extends WC_Settings_Page {
 	 */
 	function get_settings() {
 		global $current_section;
-		return array_merge( apply_filters( 'woocommerce_get_settings_' . $this->id . '_' . $current_section, array() ), array(
+		return array_merge(
+			apply_filters( 'woocommerce_get_settings_' . $this->id . '_' . $current_section, array() ),
 			array(
-				'title'     => __( 'Reset Settings', 'products-per-page-for-woocommerce' ),
-				'type'      => 'title',
-				'id'        => $this->id . '_' . $current_section . '_reset_options',
-			),
-			array(
-				'title'     => __( 'Reset section settings', 'products-per-page-for-woocommerce' ),
-				'desc'      => '<strong>' . __( 'Reset', 'products-per-page-for-woocommerce' ) . '</strong>',
-				'desc_tip'  => __( 'Check the box and save changes to reset.', 'products-per-page-for-woocommerce' ),
-				'id'        => $this->id . '_' . $current_section . '_reset',
-				'default'   => 'no',
-				'type'      => 'checkbox',
-			),
-			array(
-				'type'      => 'sectionend',
-				'id'        => $this->id . '_' . $current_section . '_reset_options',
-			),
-		) );
+				array(
+					'title'     => __( 'Reset Settings', 'products-per-page-for-woocommerce' ),
+					'type'      => 'title',
+					'id'        => $this->id . '_' . $current_section . '_reset_options',
+				),
+				array(
+					'title'     => __( 'Reset section settings', 'products-per-page-for-woocommerce' ),
+					'desc'      => '<strong>' . __( 'Reset', 'products-per-page-for-woocommerce' ) . '</strong>',
+					'desc_tip'  => __( 'Check the box and save changes to reset.', 'products-per-page-for-woocommerce' ),
+					'id'        => $this->id . '_' . $current_section . '_reset',
+					'default'   => 'no',
+					'type'      => 'checkbox',
+				),
+				array(
+					'type'      => 'sectionend',
+					'id'        => $this->id . '_' . $current_section . '_reset_options',
+				),
+			)
+		);
 	}
 
 	/**
@@ -99,7 +107,9 @@ class Alg_WC_Settings_Products_Per_Page extends WC_Settings_Page {
 				}
 			}
 			if ( method_exists( 'WC_Admin_Settings', 'add_message' ) ) {
-				WC_Admin_Settings::add_message( __( 'Your settings have been reset.', 'products-per-page-for-woocommerce' ) );
+				WC_Admin_Settings::add_message(
+					__( 'Your settings have been reset.', 'products-per-page-for-woocommerce' )
+				);
 			} else {
 				add_action( 'admin_notices', array( $this, 'admin_notice_settings_reset' ) );
 			}

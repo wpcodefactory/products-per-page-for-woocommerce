@@ -3,12 +3,13 @@
 Plugin Name: Number of Products per Page - Pagination Manager for WooCommerce
 Plugin URI: https://wpfactory.com/item/products-per-page-woocommerce/
 Description: Products per page selector for WooCommerce.
-Version: 2.5.0
+Version: 2.5.1
 Author: WPFactory
 Author URI: https://wpfactory.com
+Requires at least: 4.4
 Text Domain: products-per-page-for-woocommerce
 Domain Path: /langs
-WC tested up to: 9.8
+WC tested up to: 9.9
 Requires Plugins: woocommerce
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -26,14 +27,17 @@ if ( 'products-per-page-for-woocommerce.php' === basename( __FILE__ ) ) {
 	$plugin = 'products-per-page-for-woocommerce-pro/products-per-page-for-woocommerce-pro.php';
 	if (
 		in_array( $plugin, (array) get_option( 'active_plugins', array() ), true ) ||
-		( is_multisite() && array_key_exists( $plugin, (array) get_site_option( 'active_sitewide_plugins', array() ) ) )
+		(
+			is_multisite() &&
+			array_key_exists( $plugin, (array) get_site_option( 'active_sitewide_plugins', array() ) )
+		)
 	) {
 		defined( 'ALG_WC_PRODUCTS_PER_PAGE_FILE_FREE' ) || define( 'ALG_WC_PRODUCTS_PER_PAGE_FILE_FREE', __FILE__ );
 		return;
 	}
 }
 
-defined( 'ALG_WC_PRODUCTS_PER_PAGE_VERSION' ) || define( 'ALG_WC_PRODUCTS_PER_PAGE_VERSION', '2.5.0' );
+defined( 'ALG_WC_PRODUCTS_PER_PAGE_VERSION' ) || define( 'ALG_WC_PRODUCTS_PER_PAGE_VERSION', '2.5.1' );
 
 defined( 'ALG_WC_PRODUCTS_PER_PAGE_FILE' ) || define( 'ALG_WC_PRODUCTS_PER_PAGE_FILE', __FILE__ );
 

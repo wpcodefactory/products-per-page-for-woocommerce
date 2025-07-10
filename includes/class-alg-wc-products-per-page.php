@@ -2,7 +2,7 @@
 /**
  * Products per Page for WooCommerce - Main Class
  *
- * @version 2.5.0
+ * @version 2.5.1
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -113,7 +113,7 @@ final class Alg_WC_Products_Per_Page {
 	 * @version 2.2.0
 	 * @since   2.2.0
 	 *
-	 * @see     https://github.com/woocommerce/woocommerce/wiki/High-Performance-Order-Storage-Upgrade-Recipe-Book#declaring-extension-incompatibility
+	 * @see     https://developer.woocommerce.com/docs/features/high-performance-order-storage/recipe-book/
 	 */
 	function wc_declare_compatibility() {
 		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
@@ -151,7 +151,10 @@ final class Alg_WC_Products_Per_Page {
 	function admin() {
 
 		// Action links
-		add_filter( 'plugin_action_links_' . plugin_basename( ALG_WC_PRODUCTS_PER_PAGE_FILE ), array( $this, 'action_links' ) );
+		add_filter(
+			'plugin_action_links_' . plugin_basename( ALG_WC_PRODUCTS_PER_PAGE_FILE ),
+			array( $this, 'action_links' )
+		);
 
 		// "Recommendations" page
 		add_action( 'init', array( $this, 'add_cross_selling_library' ) );
@@ -160,7 +163,10 @@ final class Alg_WC_Products_Per_Page {
 		add_action( 'init', array( $this, 'move_wc_settings_tab_to_wpfactory_menu' ) );
 
 		// Settings
-		add_filter( 'woocommerce_get_settings_pages', array( $this, 'add_woocommerce_settings_tab' ) );
+		add_filter(
+			'woocommerce_get_settings_pages',
+			array( $this, 'add_woocommerce_settings_tab' )
+		);
 
 		// Version update
 		if ( get_option( 'alg_products_per_page_version', '' ) !== $this->version ) {
@@ -186,7 +192,11 @@ final class Alg_WC_Products_Per_Page {
 		'</a>';
 
 		if ( 'products-per-page-for-woocommerce.php' === basename( ALG_WC_PRODUCTS_PER_PAGE_FILE ) ) {
-			$custom_links[] = '<a target="_blank" style="font-weight: bold; color: green;" href="https://wpfactory.com/item/products-per-page-woocommerce/">' .
+			$custom_links[] = '<a' .
+				' target="_blank"' .
+				' style="font-weight: bold; color: green;"' .
+				' href="https://wpfactory.com/item/products-per-page-woocommerce/"' .
+			'>' .
 				__( 'Go Pro', 'products-per-page-for-woocommerce' ) .
 			'</a>';
 		}
@@ -215,7 +225,7 @@ final class Alg_WC_Products_Per_Page {
 	/**
 	 * move_wc_settings_tab_to_wpfactory_menu.
 	 *
-	 * @version 2.3.0
+	 * @version 2.5.1
 	 * @since   2.3.0
 	 */
 	function move_wc_settings_tab_to_wpfactory_menu() {
@@ -233,7 +243,11 @@ final class Alg_WC_Products_Per_Page {
 		$wpfactory_admin_menu->move_wc_settings_tab_to_wpfactory_menu( array(
 			'wc_settings_tab_id' => 'alg_wc_products_per_page',
 			'menu_title'         => __( 'Products per Page', 'products-per-page-for-woocommerce' ),
-			'page_title'         => __( 'Products per Page', 'products-per-page-for-woocommerce' ),
+			'page_title'         => __( 'Number of Products per Page - Pagination Manager for WooCommerce', 'products-per-page-for-woocommerce' ),
+			'plugin_icon'        => array(
+				'get_url_method'    => 'wporg_plugins_api',
+				'wporg_plugin_slug' => 'products-per-page-for-woocommerce',
+			),
 		) );
 
 	}
