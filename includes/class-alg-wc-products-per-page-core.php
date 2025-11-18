@@ -2,7 +2,7 @@
 /**
  * Products per Page for WooCommerce - Core Class
  *
- * @version 2.5.0
+ * @version 2.5.3
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -180,16 +180,53 @@ class Alg_WC_Products_Per_Page_Core {
 	 * @since   1.3.2
 	 */
 	function language_shortcode( $atts, $content = '' ) {
+
 		// E.g.: `[alg_wc_ppp_translate lang="EN,DE" lang_text="Text for EN & DE" not_lang_text="Text for other languages"]`
-		if ( isset( $atts['lang_text'] ) && isset( $atts['not_lang_text'] ) && ! empty( $atts['lang'] ) ) {
-			return ( ! defined( 'ICL_LANGUAGE_CODE' ) || ! in_array( strtolower( ICL_LANGUAGE_CODE ), array_map( 'trim', explode( ',', strtolower( $atts['lang'] ) ) ) ) ) ?
-				wp_kses_post( $atts['not_lang_text'] ) : wp_kses_post( $atts['lang_text'] );
+		if (
+			isset( $atts['lang_text'], $atts['not_lang_text'] ) &&
+			! empty( $atts['lang'] )
+		) {
+			return (
+				(
+					! defined( 'ICL_LANGUAGE_CODE' ) ||
+					! in_array(
+						strtolower( ICL_LANGUAGE_CODE ),
+						array_map( 'trim', explode( ',', strtolower( $atts['lang'] ) ) )
+					)
+				) ?
+				wp_kses_post( $atts['not_lang_text'] ) :
+				wp_kses_post( $atts['lang_text'] )
+			);
 		}
+
 		// E.g.: `[alg_wc_ppp_translate lang="EN,DE"]Text for EN & DE[/alg_wc_ppp_translate][alg_wc_ppp_translate not_lang="EN,DE"]Text for other languages[/alg_wc_ppp_translate]`
 		return (
-			( ! empty( $atts['lang'] )     && ( ! defined( 'ICL_LANGUAGE_CODE' ) || ! in_array( strtolower( ICL_LANGUAGE_CODE ), array_map( 'trim', explode( ',', strtolower( $atts['lang'] ) ) ) ) ) ) ||
-			( ! empty( $atts['not_lang'] ) &&     defined( 'ICL_LANGUAGE_CODE' ) &&   in_array( strtolower( ICL_LANGUAGE_CODE ), array_map( 'trim', explode( ',', strtolower( $atts['not_lang'] ) ) ) ) )
-		) ? '' : wp_kses_post( $content );
+			(
+				(
+					! empty( $atts['lang'] ) &&
+					(
+						! defined( 'ICL_LANGUAGE_CODE' ) ||
+						! in_array(
+							strtolower( ICL_LANGUAGE_CODE ),
+							array_map( 'trim', explode( ',', strtolower( $atts['lang'] ) ) )
+						)
+					)
+				) ||
+				(
+					! empty( $atts['not_lang'] ) &&
+					(
+						defined( 'ICL_LANGUAGE_CODE' ) &&
+						in_array(
+							strtolower( ICL_LANGUAGE_CODE ),
+							array_map( 'trim', explode( ',', strtolower( $atts['not_lang'] ) ) )
+						)
+					)
+				)
+			) ?
+			'' :
+			wp_kses_post( $content )
+		);
+
 	}
 
 	/**
@@ -203,7 +240,10 @@ class Alg_WC_Products_Per_Page_Core {
 	function form_shortcode( $atts, $content = '' ) {
 
 		$default_atts = array(
-			'template'     => get_option( 'alg_products_per_page_text', __( 'Products <strong>%from% - %to%</strong> from <strong>%total%</strong>. Products on page %dropdown%', 'products-per-page-for-woocommerce' ) ), // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText, WordPress.WP.I18n.MissingTranslatorsComment
+			'template'     => get_option(
+				'alg_products_per_page_text',
+				__( 'Products <strong>%from% - %to%</strong> from <strong>%total%</strong>. Products on page %dropdown%', 'products-per-page-for-woocommerce' ) // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText, WordPress.WP.I18n.MissingTranslatorsComment
+			),
 			'select_class' => get_option( 'alg_wc_products_per_page_select_class', 'sortby rounded_corners_class' ),
 			'select_style' => get_option( 'alg_wc_products_per_page_select_style', '' ),
 			'before_html'  => get_option( 'alg_wc_products_per_page_before_html', '<div class="clearfix"></div><div>' ),
@@ -223,8 +263,10 @@ class Alg_WC_Products_Per_Page_Core {
 
 		$products_per_page_form = $this->get_products_per_page_form( array_merge( $atts, array(
 			'form_method'    => get_option( 'alg_wc_products_per_page_form_method', 'POST' ),
-			'select_options' => apply_filters( 'alg_wc_products_per_page_select_options',
-				implode( PHP_EOL, array( '10|10', '25|25', '50|50', '100|100', 'All|-1' ) ) ),
+			'select_options' => apply_filters(
+				'alg_wc_products_per_page_select_options',
+				implode( PHP_EOL, array( '10|10', '25|25', '50|50', '100|100', 'All|-1' ) )
+			),
 		) ) );
 
 		return wp_kses(
@@ -409,7 +451,7 @@ class Alg_WC_Products_Per_Page_Core {
 	/**
 	 * get_products_per_page_form.
 	 *
-	 * @version 2.3.0
+	 * @version 2.5.3
 	 * @since   1.5.0
 	 *
 	 * @todo    (feature) separate templates for "Showing the single result" and "Showing all %d results" (see `woocommerce/.../result-count.php`)
@@ -459,6 +501,9 @@ class Alg_WC_Products_Per_Page_Core {
 			'%radio%'    => $this->get_radio( $per_page, $args ),
 		);
 		$placeholders['%select_form%'] = $placeholders['%dropdown%']; // deprecated `%select_form%`
+
+		// Apply shortcodes in the `template` (e.g., `[alg_wc_ppp_translate]`)
+		$args['template'] = do_shortcode( $args['template'] );
 
 		// Final HTML
 		$content = str_replace( array_keys( $placeholders ), $placeholders, $args['template'] );

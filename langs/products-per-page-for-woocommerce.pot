@@ -2,49 +2,49 @@
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: products-per-page-for-woocommerce 2.5.2\n"
+"Project-Id-Version: Number of Products per Page - Pagination Manager for WooCommerce 2.5.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/products-per-page-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-11T17:15:44+00:00\n"
+"POT-Creation-Date: 2025-11-18T16:15:15+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.12.0\n"
+"X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: products-per-page-for-woocommerce\n"
 
 #. Plugin Name of the plugin
-#: products-per-page-for-woocommerce-pro.php
-msgid "Number of Products per Page - Pagination Manager for WooCommerce Pro"
+#: products-per-page-for-woocommerce.php
+#: includes/class-alg-wc-products-per-page.php:246
+msgid "Number of Products per Page - Pagination Manager for WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: products-per-page-for-woocommerce-pro.php
+#: products-per-page-for-woocommerce.php
 msgid "https://wpfactory.com/item/products-per-page-woocommerce/"
 msgstr ""
 
 #. Description of the plugin
-#: products-per-page-for-woocommerce-pro.php
+#: products-per-page-for-woocommerce.php
 msgid "Products per page selector for WooCommerce."
 msgstr ""
 
 #. Author of the plugin
-#: products-per-page-for-woocommerce-pro.php
+#: products-per-page-for-woocommerce.php
 msgid "WPFactory"
 msgstr ""
 
 #. Author URI of the plugin
-#: products-per-page-for-woocommerce-pro.php
+#: products-per-page-for-woocommerce.php
 msgid "https://wpfactory.com"
 msgstr ""
 
-#: includes/class-alg-wc-products-per-page-core.php:206
-#: includes/class-alg-wc-products-per-page-core.php:432
-#: includes/class-alg-wc-products-per-page-core.php:484
+#: includes/class-alg-wc-products-per-page-core.php:245
+#: includes/class-alg-wc-products-per-page-core.php:474
+#: includes/class-alg-wc-products-per-page-core.php:529
 #: includes/pro/class-alg-wc-products-per-page-widget.php:131
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:173
-#, php-format
 msgid "Products <strong>%from% - %to%</strong> from <strong>%total%</strong>. Products on page %dropdown%"
 msgstr ""
 
@@ -64,10 +64,6 @@ msgstr ""
 msgid "Products per Page"
 msgstr ""
 
-#: includes/class-alg-wc-products-per-page.php:246
-msgid "Number of Products per Page - Pagination Manager for WooCommerce"
-msgstr ""
-
 #: includes/pro/class-alg-wc-products-per-page-widget.php:26
 msgid "Products per page selector."
 msgstr ""
@@ -85,7 +81,6 @@ msgstr ""
 #. Translators: %s: Placeholder list.
 #: includes/pro/class-alg-wc-products-per-page-widget.php:120
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:163
-#, php-format
 msgid "Available placeholders: %s."
 msgstr ""
 
@@ -99,7 +94,6 @@ msgstr ""
 #: includes/pro/class-alg-wc-products-per-page-widget.php:152
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:181
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:196
-#, php-format
 msgid "In case of %1$s it is applied to each %2$s tag. In case of %3$s it is applied to the %4$s tag."
 msgstr ""
 
@@ -126,7 +120,6 @@ msgstr ""
 #. Translators: %s: Placeholder name.
 #: includes/pro/class-alg-wc-products-per-page-widget.php:175
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:225
-#, php-format
 msgid "This is used for the %s placeholder - to \"glue\" the radio buttons."
 msgstr ""
 
@@ -144,7 +137,6 @@ msgstr ""
 
 #. Translators: %1$s: Method name, %2$s: Parameter name, %3$s: URL example.
 #: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:50
-#, php-format
 msgid "%1$s method will append %2$s parameter to the URL, e.g.: %3$s"
 msgstr ""
 
@@ -161,7 +153,6 @@ msgstr ""
 
 #. Translators: %s: Shortcode name.
 #: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:69
-#, php-format
 msgid "Apply selector in WooCommerce %s shortcode."
 msgstr ""
 
@@ -236,7 +227,6 @@ msgstr ""
 
 #. Translators: %s: Cookie name.
 #: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:120
-#, php-format
 msgid "%s cookie is used to save user's \"products per page\" selection."
 msgstr ""
 
@@ -318,7 +308,6 @@ msgstr ""
 
 #. Translators: %s: Position name.
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:101
-#, php-format
 msgid "Position priority: %s"
 msgstr ""
 
@@ -340,7 +329,6 @@ msgstr ""
 
 #. Translators: %s: Example.
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:119
-#, php-format
 msgid "If you want to set the priority for the action, use vertical bar symbol, e.g.: %s"
 msgstr ""
 
@@ -350,7 +338,6 @@ msgstr ""
 
 #. Translators: %1$s: Widget name, %2$s: Link.
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:134
-#, php-format
 msgid "Will add \"%1$s\" widget to %2$s."
 msgstr ""
 
@@ -372,7 +359,6 @@ msgstr ""
 
 #. Translators: %1$s: Format description, %2$s: Code.
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:250
-#, php-format
 msgid "Enter one option per line in %1$s format. Use %2$s for \"all products\"."
 msgstr ""
 
