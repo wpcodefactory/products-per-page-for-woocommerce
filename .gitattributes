@@ -1,8 +1,10 @@
 # Files
+.distignore export-ignore
 .gitignore export-ignore
 composer.lock export-ignore
 README.md export-ignore
 .gitattributes export-ignore
+git-tag.sh export-ignore
 
 # Directories
 /.wordpress-org export-ignore
