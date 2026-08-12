@@ -2,7 +2,7 @@
 /**
  * Products per Page for WooCommerce - General Section Settings
  *
- * @version 2.4.0
+ * @version 2.5.5
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -47,7 +47,7 @@ class Alg_WC_Products_Per_Page_Settings_General extends Alg_WC_Products_Per_Page
 	/**
 	 * get_settings.
 	 *
-	 * @version 2.4.0
+	 * @version 2.5.5
 	 * @since   1.0.0
 	 *
 	 * @todo    (desc) split this into separate sections, e.g., "General", "Template", etc.?
@@ -244,23 +244,16 @@ class Alg_WC_Products_Per_Page_Settings_General extends Alg_WC_Products_Per_Page
 			),
 			array(
 				'title'             => __( 'Select options', 'products-per-page-for-woocommerce' ),
-				'desc'              => (
-					sprintf(
-						/* Translators: %1$s: Format description, %2$s: Code. */
-						__( 'Enter one option per line in %1$s format. Use %2$s for "all products".', 'products-per-page-for-woocommerce' ),
-						'<code>' . __( 'Title', 'products-per-page-for-woocommerce' ) . '|' . __( 'Number', 'products-per-page-for-woocommerce' ) . '</code>',
-						'<code>-1</code>'
-					) .
-					apply_filters(
-						'alg_wc_products_per_page_settings',
-						'<br>' . 'You will need <a href="https://wpfactory.com/item/products-per-page-woocommerce/" target="_blank">Number of Products per Page - Pagination Manager for WooCommerce Pro</a> plugin to change this option.'
-					)
+				'desc'              => sprintf(
+					/* Translators: %1$s: Format description, %2$s: Code. */
+					__( 'Enter one option per line in %1$s format. Use %2$s for "all products".', 'products-per-page-for-woocommerce' ),
+					'<code>' . __( 'Title', 'products-per-page-for-woocommerce' ) . '|' . __( 'Number', 'products-per-page-for-woocommerce' ) . '</code>',
+					'<code>-1</code>'
 				),
 				'id'                => 'alg_products_per_page_select_options',
 				'default'           => implode( PHP_EOL, array( '10|10', '25|25', '50|50', '100|100', 'All|-1' ) ),
 				'type'              => 'textarea',
 				'css'               => 'height:200px;',
-				'custom_attributes' => apply_filters( 'alg_wc_products_per_page_settings', array ( 'readonly' => 'readonly' ) ),
 			),
 			array(
 				'title'             => __( 'Default option', 'products-per-page-for-woocommerce' ),

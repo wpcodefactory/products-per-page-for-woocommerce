@@ -14,7 +14,7 @@
  * @package    WooCommerce\Templates
  * @wc_version 9.3.0
  *
- * @version 2.3.0
+ * @version 2.5.5
  * @since   2.0.0
  */
 
@@ -35,7 +35,7 @@ if ( $total <= 1 ) {
 	return;
 }
 ?>
-<nav class="woocommerce-pagination" aria-label="<?php esc_attr_e( 'Product Pagination', 'woocommerce' ); /* phpcs:ignore WordPress.WP.I18n.TextDomainMismatch */ ?>">
+<nav class="woocommerce-pagination" aria-label="<?php esc_attr_e( 'Product Pagination', 'products-per-page-for-woocommerce' ); ?>">
 	<?php
 		// "Products per Page" modification starts here
 		do_action( 'alg_wc_products_per_page_before_pagination' );

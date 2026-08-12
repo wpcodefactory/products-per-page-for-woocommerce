@@ -2,7 +2,7 @@
 /**
  * Products per Page for WooCommerce - Advanced Section Settings
  *
- * @version 2.4.0
+ * @version 2.5.5
  * @since   2.0.0
  *
  * @author  Algoritmika Ltd.
@@ -29,7 +29,7 @@ class Alg_WC_Products_Per_Page_Settings_Advanced extends Alg_WC_Products_Per_Pag
 	/**
 	 * get_settings.
 	 *
-	 * @version 2.4.0
+	 * @version 2.5.5
 	 * @since   2.0.0
 	 *
 	 * @todo    (desc) `alg_wc_products_per_page_scopes`: better desc?
@@ -148,13 +148,6 @@ class Alg_WC_Products_Per_Page_Settings_Advanced extends Alg_WC_Products_Per_Pag
 				'default'           => 'yes',
 				'type'              => 'checkbox',
 				'checkboxgroup'     => 'end',
-			),
-			array(
-				'title'             => __( 'Custom CSS', 'products-per-page-for-woocommerce' ),
-				'id'                => 'alg_wc_products_per_page_custom_css',
-				'default'           => '',
-				'type'              => 'textarea',
-				'css'               => 'height:200px;',
 			),
 			array(
 				'type'              => 'sectionend',

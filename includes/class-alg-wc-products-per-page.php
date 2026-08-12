@@ -2,7 +2,7 @@
 /**
  * Products per Page for WooCommerce - Main Class
  *
- * @version 2.5.1
+ * @version 2.5.5
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -57,7 +57,7 @@ final class Alg_WC_Products_Per_Page {
 	/**
 	 * Alg_WC_Products_Per_Page Constructor.
 	 *
-	 * @version 2.3.0
+	 * @version 2.5.5
 	 * @since   1.0.0
 	 */
 	function __construct() {
@@ -71,9 +71,6 @@ final class Alg_WC_Products_Per_Page {
 		if ( is_admin() ) {
 			require_once plugin_dir_path( ALG_WC_PRODUCTS_PER_PAGE_FILE ) . 'vendor/autoload.php';
 		}
-
-		// Set up localisation
-		add_action( 'init', array( $this, 'localize' ) );
 
 		// Declare compatibility with custom order tables for WooCommerce
 		add_action( 'before_woocommerce_init', array( $this, 'wc_declare_compatibility' ) );
@@ -91,20 +88,6 @@ final class Alg_WC_Products_Per_Page {
 			$this->admin();
 		}
 
-	}
-
-	/**
-	 * localize.
-	 *
-	 * @version 1.6.0
-	 * @since   1.4.0
-	 */
-	function localize() {
-		load_plugin_textdomain(
-			'products-per-page-for-woocommerce',
-			false,
-			dirname( plugin_basename( ALG_WC_PRODUCTS_PER_PAGE_FILE ) ) . '/langs/'
-		);
 	}
 
 	/**
