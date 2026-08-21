@@ -2,7 +2,7 @@
 /**
  * Products per Page for WooCommerce - Core Class
  *
- * @version 2.5.5
+ * @version 2.5.6
  * @since   1.0.0
  *
  * @author  Algoritmika Ltd.
@@ -571,19 +571,44 @@ class Alg_WC_Products_Per_Page_Core {
 	}
 
 	/**
+	 * get_scope_functions.
+	 *
+	 * @version 2.5.6
+	 * @since   2.5.6
+	 */
+	static function get_scope_functions() {
+		return array(
+			'is_product_category' => __( 'Product category', 'products-per-page-for-woocommerce' ),
+			'is_product_tag'      => __( 'Product tag', 'products-per-page-for-woocommerce' ),
+			'is_product_taxonomy' => __( 'Product taxonomy', 'products-per-page-for-woocommerce' ),
+			'is_shop'             => __( 'Shop', 'products-per-page-for-woocommerce' ),
+			'is_archive'          => __( 'Archive', 'products-per-page-for-woocommerce' ),
+			'is_home'             => __( 'Home', 'products-per-page-for-woocommerce' ),
+			'is_front_page'       => __( 'Front page', 'products-per-page-for-woocommerce' ),
+			'is_single'           => __( 'Single', 'products-per-page-for-woocommerce' ),
+			'is_singular'         => __( 'Singular', 'products-per-page-for-woocommerce' ),
+		);
+	}
+
+	/**
 	 * check_scope.
 	 *
-	 * @version 2.1.0
+	 * @version 2.5.6
 	 * @since   2.1.0
 	 */
 	function check_scope() {
-		$scopes = get_option( 'alg_wc_products_per_page_scopes', array() );
+		$scopes            = get_option( 'alg_wc_products_per_page_scopes', array() );
+		$allowed_functions = array_keys( self::get_scope_functions() );
 		foreach ( array( 'require', 'exclude' ) as $scope ) {
 			if ( ! empty( $scopes[ $scope ] ) ) {
 				foreach ( $scopes[ $scope ] as $func ) {
 					if (
+						in_array( $func, $allowed_functions, true ) &&
 						function_exists( $func ) &&
-						( ( 'require' === $scope && ! $func() ) || ( 'exclude' === $scope && $func() ) )
+						(
+							( 'require' === $scope && ! $func() ) ||
+							( 'exclude' === $scope &&   $func() )
+						)
 					) {
 						return false;
 					}

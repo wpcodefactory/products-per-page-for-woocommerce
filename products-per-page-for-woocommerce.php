@@ -3,7 +3,7 @@
  * Plugin Name: Number of Products per Page - Pagination Manager for WooCommerce
  * Plugin URI: https://wpfactory.com/item/products-per-page-woocommerce/
  * Description: Products per page selector for WooCommerce.
- * Version: 2.5.5
+ * Version: 2.5.6
  * Author: WPFactory
  * Author URI: https://wpfactory.com
  * Requires at least: 4.4
@@ -39,7 +39,7 @@ if ( 'products-per-page-for-woocommerce.php' === basename( __FILE__ ) ) {
 	}
 }
 
-defined( 'ALG_WC_PRODUCTS_PER_PAGE_VERSION' ) || define( 'ALG_WC_PRODUCTS_PER_PAGE_VERSION', '2.5.5' );
+defined( 'ALG_WC_PRODUCTS_PER_PAGE_VERSION' ) || define( 'ALG_WC_PRODUCTS_PER_PAGE_VERSION', '2.5.6' );
 
 defined( 'ALG_WC_PRODUCTS_PER_PAGE_FILE' ) || define( 'ALG_WC_PRODUCTS_PER_PAGE_FILE', __FILE__ );
 

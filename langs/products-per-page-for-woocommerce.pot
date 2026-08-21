@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: Number of Products per Page - Pagination Manager for WooCommerce 2.5.5\n"
+"Project-Id-Version: Number of Products per Page - Pagination Manager for WooCommerce 2.5.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/products-per-page-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-12T21:07:07+00:00\n"
+"POT-Creation-Date: 2026-08-21T13:32:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: products-per-page-for-woocommerce\n"
@@ -46,6 +46,42 @@ msgstr ""
 #: includes/pro/class-alg-wc-products-per-page-widget.php:131
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:173
 msgid "Products <strong>%from% - %to%</strong> from <strong>%total%</strong>. Products on page %dropdown%"
+msgstr ""
+
+#: includes/class-alg-wc-products-per-page-core.php:581
+msgid "Product category"
+msgstr ""
+
+#: includes/class-alg-wc-products-per-page-core.php:582
+msgid "Product tag"
+msgstr ""
+
+#: includes/class-alg-wc-products-per-page-core.php:583
+msgid "Product taxonomy"
+msgstr ""
+
+#: includes/class-alg-wc-products-per-page-core.php:584
+msgid "Shop"
+msgstr ""
+
+#: includes/class-alg-wc-products-per-page-core.php:585
+msgid "Archive"
+msgstr ""
+
+#: includes/class-alg-wc-products-per-page-core.php:586
+msgid "Home"
+msgstr ""
+
+#: includes/class-alg-wc-products-per-page-core.php:587
+msgid "Front page"
+msgstr ""
+
+#: includes/class-alg-wc-products-per-page-core.php:588
+msgid "Single"
+msgstr ""
+
+#: includes/class-alg-wc-products-per-page-core.php:589
+msgid "Singular"
 msgstr ""
 
 #: includes/class-alg-wc-products-per-page.php:174
@@ -145,8 +181,8 @@ msgid "Apply in WooCommerce shortcodes"
 msgstr ""
 
 #: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:66
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:97
 #: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:117
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:137
 #: includes/settings/class-alg-wc-products-per-page-settings-general.php:130
 msgid "Enable"
 msgstr ""
@@ -168,89 +204,44 @@ msgstr ""
 msgid "Apply selector on selected pages only. Ignored if empty."
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:85
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:104
-msgid "Product category"
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:86
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:105
-msgid "Product tag"
-msgstr ""
-
 #: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:87
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:106
-msgid "Product taxonomy"
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:88
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:107
-msgid "Shop"
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:89
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:108
-msgid "Archive"
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:90
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:109
-msgid "Home"
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:91
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:110
-msgid "Front page"
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:92
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:111
-msgid "Single"
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:93
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:112
-msgid "Singular"
-msgstr ""
-
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:97
 msgid "Exclude"
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:98
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:88
 msgid "Do not apply selector on selected pages."
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:116
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:96
 msgid "Save in cookie"
 msgstr ""
 
 #. Translators: %s: Cookie name.
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:120
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:100
 msgid "%s cookie is used to save user's \"products per page\" selection."
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:128
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:108
 msgid "Cookie expiration time"
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:129
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:109
 msgid "In seconds."
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:136
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:116
 msgid "Save in session"
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:138
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:118
 msgid "Store selected \"products per page\" value in user session."
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:145
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:125
 msgid "Force session start"
 msgstr ""
 
-#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:146
+#: includes/settings/class-alg-wc-products-per-page-settings-advanced.php:126
 msgid "Force session start for the non-logged users."
 msgstr ""
 

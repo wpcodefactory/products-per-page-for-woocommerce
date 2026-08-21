@@ -2,7 +2,7 @@
 /**
  * Products per Page for WooCommerce - Advanced Section Settings
  *
- * @version 2.5.5
+ * @version 2.5.6
  * @since   2.0.0
  *
  * @author  Algoritmika Ltd.
@@ -29,7 +29,7 @@ class Alg_WC_Products_Per_Page_Settings_Advanced extends Alg_WC_Products_Per_Pag
 	/**
 	 * get_settings.
 	 *
-	 * @version 2.5.5
+	 * @version 2.5.6
 	 * @since   2.0.0
 	 *
 	 * @todo    (desc) `alg_wc_products_per_page_scopes`: better desc?
@@ -81,17 +81,7 @@ class Alg_WC_Products_Per_Page_Settings_Advanced extends Alg_WC_Products_Per_Pag
 				'default'           => array(),
 				'type'              => 'multiselect',
 				'class'             => 'chosen_select',
-				'options'           => array(
-					'is_product_category' => __( 'Product category', 'products-per-page-for-woocommerce' ),
-					'is_product_tag'      => __( 'Product tag', 'products-per-page-for-woocommerce' ),
-					'is_product_taxonomy' => __( 'Product taxonomy', 'products-per-page-for-woocommerce' ),
-					'is_shop'             => __( 'Shop', 'products-per-page-for-woocommerce' ),
-					'is_archive'          => __( 'Archive', 'products-per-page-for-woocommerce' ),
-					'is_home'             => __( 'Home', 'products-per-page-for-woocommerce' ),
-					'is_front_page'       => __( 'Front page', 'products-per-page-for-woocommerce' ),
-					'is_single'           => __( 'Single', 'products-per-page-for-woocommerce' ),
-					'is_singular'         => __( 'Singular', 'products-per-page-for-woocommerce' ),
-				),
+				'options'           => Alg_WC_Products_Per_Page_Core::get_scope_functions(),
 			),
 			array(
 				'desc'              => __( 'Exclude', 'products-per-page-for-woocommerce' ),
@@ -100,17 +90,7 @@ class Alg_WC_Products_Per_Page_Settings_Advanced extends Alg_WC_Products_Per_Pag
 				'default'           => array(),
 				'type'              => 'multiselect',
 				'class'             => 'chosen_select',
-				'options'           => array(
-					'is_product_category' => __( 'Product category', 'products-per-page-for-woocommerce' ),
-					'is_product_tag'      => __( 'Product tag', 'products-per-page-for-woocommerce' ),
-					'is_product_taxonomy' => __( 'Product taxonomy', 'products-per-page-for-woocommerce' ),
-					'is_shop'             => __( 'Shop', 'products-per-page-for-woocommerce' ),
-					'is_archive'          => __( 'Archive', 'products-per-page-for-woocommerce' ),
-					'is_home'             => __( 'Home', 'products-per-page-for-woocommerce' ),
-					'is_front_page'       => __( 'Front page', 'products-per-page-for-woocommerce' ),
-					'is_single'           => __( 'Single', 'products-per-page-for-woocommerce' ),
-					'is_singular'         => __( 'Singular', 'products-per-page-for-woocommerce' ),
-				),
+				'options'           => Alg_WC_Products_Per_Page_Core::get_scope_functions(),
 			),
 			array(
 				'title'             => __( 'Save in cookie', 'products-per-page-for-woocommerce' ),
