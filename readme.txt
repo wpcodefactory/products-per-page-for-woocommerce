@@ -3,7 +3,8 @@ Contributors: wpcodefactory, anbinder, karzin, omardabbas
 Tags: woocommerce, products per page, ecommerce
 Requires at least: 4.4
 Tested up to: 7.1
-Stable tag: 2.5.6
+Requires PHP: 7.4
+Stable tag: 2.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -50,6 +51,15 @@ Products per page selector for WooCommerce.
 1. Number of Products per Page - Pagination Manager for WooCommerce - Frontend example
 
 == Changelog ==
+
+= 2.6.0 - 12/11/2026 =
+* Dev - Ensure the `product-page` URL parameter is not passed in the products-per-page form.
+* Dev - Coding standards improved.
+* Dev - WPFactory Admin Menu - Library updated (to v1.1.4).
+* Dev - WPFactory Cross-Selling - Library updated (to v1.1.7).
+* Dev - WPFactory Key Manager - Library updated (to v1.1.1).
+* WC tested up to: 11.3.
+* Requires PHP: 7.4.
 
 = 2.5.6 - 21/08/2026 =
 * Dev - Advanced Options - Scopes - Functions allow-listed.

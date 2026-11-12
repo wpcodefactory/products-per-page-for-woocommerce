@@ -10,12 +10,13 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see        https://woocommerce.com/document/template-structure/
- * @package    WooCommerce\Templates
- * @wc_version 9.3.0
- *
  * @version 2.5.5
  * @since   2.0.0
+ *
+ * @see https://woocommerce.com/document/template-structure/
+ * @see https://github.com/woocommerce/woocommerce/blob/9.3.0/plugins/woocommerce/templates/loop/pagination.php
+ *
+ * @package WPFactory\WC_Products_Per_Page\Templates
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -26,20 +27,23 @@ $base    = isset( $base ) ? $base : esc_url_raw( str_replace( 999999999, '%#%', 
 $format  = isset( $format ) ? $format : '';
 
 if ( $total <= 1 ) {
-	// "Products per Page" modification starts here
-	?><nav class="woocommerce-pagination"><?php
+	// "Products per Page" modification starts here.
+	?><nav class="woocommerce-pagination">
+	<?php
 		do_action( 'alg_wc_products_per_page_before_pagination' );
 		do_action( 'alg_wc_products_per_page_after_pagination' );
-	?></nav><?php
-	// "Products per Page" modification ends here
+	?>
+	</nav>
+	<?php
+	// "Products per Page" modification ends here.
 	return;
 }
 ?>
 <nav class="woocommerce-pagination" aria-label="<?php esc_attr_e( 'Product Pagination', 'products-per-page-for-woocommerce' ); ?>">
 	<?php
-		// "Products per Page" modification starts here
+		// "Products per Page" modification starts here.
 		do_action( 'alg_wc_products_per_page_before_pagination' );
-		// "Products per Page" modification ends here
+		// "Products per Page" modification ends here.
 	?>
 	<?php
 	echo paginate_links( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -61,8 +65,8 @@ if ( $total <= 1 ) {
 	);
 	?>
 	<?php
-		// "Products per Page" modification starts here
+		// "Products per Page" modification starts here.
 		do_action( 'alg_wc_products_per_page_after_pagination' );
-		// "Products per Page" modification ends here
+		// "Products per Page" modification ends here.
 	?>
 </nav>
